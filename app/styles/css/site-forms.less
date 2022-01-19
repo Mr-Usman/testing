@@ -1,0 +1,377 @@
+// site-forms.css
+
+@import "site-variables.less";
+@import "site-base.less";
+
+// &:extend(.class);
+
+.form {
+   width: 100%;
+
+   // background-color: rgba(255, 0, 0, 0.2);
+
+   .form-text {
+      margin: @column-space;
+
+      font-size: 16px;
+      font-family: @font-body;
+      font-weight: 400;
+      line-height: 20px;
+      text-align: center;
+      color: @color3;
+
+      // background-color: rgba(255, 0, 0, 0.2);
+   }
+
+   // Form Group
+   // Each group contains a label, input, info text and invalid text
+
+   .form-group,
+   .form-group-noselect {
+      margin: @column-space;
+
+      // background-color: rgba(255, 0, 0, 0.2);
+   }
+
+   .group-label {
+      display: block;
+      width: 100%;
+      padding: 1px 0;
+      font-size: 14px;
+      font-family: @font-headline;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      color: @bkgrnd-color;
+      background-color: @color2;
+   }
+
+   .group-info {
+      padding: 5px;
+      border-radius: 0;
+   }
+
+   .form-info,
+   .group-info {
+      font-size: 12px;
+      font-family: @font-body;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: center;
+      color: @color3;
+   }
+
+   .form-info {
+      margin: 0px @column-space;
+   }
+
+   .group-invalid {
+      margin: 0;
+      padding: 2px 5px 0;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-family: @font-body;
+      font-weight: 700;
+      color: black;
+      text-align: center;
+      background-color: @danger;
+   }
+
+   // Input Group
+   // Input row can sometimes contain several elements on the same line
+
+   .input-group {
+      &:extend(.flex-rows);
+   }
+
+   .form-input {
+      &:extend(.md);
+
+      width: 100%;
+      margin: 0;
+      padding: 0 10px;
+
+      font-size: 18px;
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: left;
+      color: @color0;
+
+      border: 1px solid @color2;
+      border-radius: 0;
+
+      background-color: @bkgrnd-color;
+   }
+
+   .input-group .btn-square {
+      border-left: none;
+   }
+
+   // Group Focus Emphasis Color
+
+   .form-input:focus,
+   .form-group:focus-within,
+   .form-group:focus-within .form-input,
+   .form-group:focus-within .form-textarea {
+      color: @color0;
+      border-color: @emphasis;
+   }
+
+   .form-group:focus-within .form-output,
+   .form-group:focus-within .form-output-body {
+      border-color: @emphasis;
+   }
+
+   .form-group:focus-within .group-label {
+      color: @bkgrnd-color;
+      border-color: @emphasis;
+      background-color: @emphasis;
+   }
+
+   .form-group:focus-within .btn {
+      color: @emphasis;
+      border-color: @emphasis;
+      background-color: @bkgrnd-color;
+   }
+
+   .form-group:focus-within .btn:hover {
+      color: @bkgrnd-color;
+      background-color: @emphasis;
+   }
+
+   // Button Group Row
+
+   .btn-group {
+      &:extend(.md);
+      &:extend(.flex-rows);
+
+      margin: @column-space 0;
+   }
+
+   .btn-space {
+      flex: 1 1 auto;
+      align-self: auto;
+      height: 100%;
+      margin: 0 5px;
+      border: 1px solid @color4;
+      background-color: @color4;
+   }
+
+   .btn-space:first-child {
+      margin: 0 5px 0 0;
+   }
+
+   .btn-space:last-child {
+      margin: 0 0 0 5px;
+   }
+
+   .btn-hold {
+      flex: 0 1 auto;
+      align-self: auto;
+      height: 100%;
+      margin: 0 5px;
+   }
+
+   // Password Strength Meter
+
+   .password-meter {
+      width: 100px;
+      height: 10px;
+      margin: 0 auto;
+
+      border-left: 1px solid @color3;
+
+      &:extend(.flex-rows);
+   }
+
+   .meter-box {
+      flex: 1 1 auto;
+      align-self: auto;
+
+      min-width: 15px;
+      height: 100%;
+      border: 1px solid @color3;
+      border-left: 0;
+   }
+
+   .meter-fill {
+      background-color: @color2;
+   }
+
+   .label-icon {
+      width: 15px;
+      float: right;
+      margin: 2px 5px 0 -25px;
+      font-size: 13px;
+   }
+
+   .form-textarea {
+      width: 100%;
+      min-height: 40px;
+      margin: 0;
+      padding: 10px;
+
+      font-size: 16px;
+      font-family: @font-body;
+      font-weight: 400;
+      text-align: left;
+      color: @color0;
+
+      border: 1px solid @color2;
+      border-top: none;
+      border-radius: 0;
+
+      background-color: @bkgrnd-color;
+
+      resize: vertical;
+   }
+
+   .form-output,
+   .form-output-body {
+      &:extend(.md);
+
+      width: 100%;
+      margin: 0;
+      padding: 0 10px;
+
+      font-size: 18px;
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: left;
+      color: @color2;
+
+      border: 1px solid @color2;
+      border-radius: 0;
+
+      background-color: @color4;
+
+      pointer-events: none;
+      user-select: none;
+   }
+
+   .form-output-body {
+      font-size: 16px;
+      font-family: @font-body;
+   }
+
+   .slider {
+      &:extend(.flex-center);
+
+      flex: 1 1 auto;
+      align-self: auto;
+   }
+
+   .slider-display {
+      width: 80px;
+
+      flex: 0 1 auto;
+      align-self: auto;
+
+      text-align: center;
+      border: 1px solid @color2;
+      border-left: none;
+   }
+
+   .form-icon {
+      &:extend(.md);
+
+      width: 100%;
+      margin: 0;
+      padding: 0 10px;
+
+      flex: 0;
+
+      font-size: 18px;
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: center;
+      color: inherit;
+
+      border: 1px solid @color2;
+      border-left: none;
+   }
+
+   .form-flex {
+      // &:extend(.flex-center);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: stretch;
+      align-items: flex-start;
+      gap: @column-space;
+
+      margin: @column-space;
+   }
+
+   /* CHECK BOX */
+
+   .form-check {
+      &:extend(.sm);
+
+      width: 30%;
+      min-width: 220px;
+      margin: 0 @column-space;
+      text-align: left;
+
+      // background-color: rgba(255, 255, 0, 0.2);
+   }
+
+   .form-check:focus-within .form-check-icon {
+      border: 1px solid @emphasis;
+      // background-color: rgba(255, 255, 0, 0.2);
+   }
+
+   .form-check-input {
+      // display: none;
+      opacity: 0.01;
+   }
+
+   .form-check-label {
+      &:extend(.sm);
+      position: relative;
+      display: inline-block;
+
+      font-size: 18px;
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: center;
+      color: @color0;
+      user-select: none;
+
+      display: flex;
+      align-items: center;
+   }
+
+   .form-check-icon {
+      &:extend(.sm);
+      position: relative;
+      display: inline-block;
+
+      margin-right: 10px;
+      border: 1px solid @color2;
+   }
+
+   .form-check-input:checked + .form-check-icon::before {
+      &:extend(.sm);
+      position: absolute;
+      display: inline-block;
+
+      top: 0;
+      left: -1px;
+
+      font-size: 18px;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 400;
+      text-align: center;
+
+      content: "\f00c";
+   }
+
+   .qty {
+      font-family: @font-body;
+      font-size: 14px;
+      color: @color2;
+      margin-left: 5px;
+   }
+}

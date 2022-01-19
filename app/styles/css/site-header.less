@@ -1,0 +1,149 @@
+// site-header.less
+
+@import "site-variables.less";
+@import "site-base.less";
+
+// &:extend(.class);
+
+@header-height: 50px;
+
+.header {
+   width: 100%;
+   height: @header-height;
+
+   .header-nav {
+      position: relative;
+
+      width: 100%;
+      max-width: @site-width;
+      height: 100%;
+      padding: 0 2px 0 0;
+
+      background-color: @color3;
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-content: space-between;
+      align-items: center;
+   }
+
+   .logo {
+      margin: auto 10px;
+   }
+
+   .space {
+      flex-grow: 1;
+      // background-color: rgba(255, 255, 0, 0.2);
+   }
+
+   .menu {
+      width: 50px;
+      height: 100%;
+
+      color: @bkgrnd-color;
+      font-size: 20px;
+      padding: 0 5px;
+
+      border-left: 1px solid @bkgrnd-color;
+
+      // background-color: rgba(255, 0, 0, 0.2);
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+   }
+
+   .menu:last-child {
+      border-right: 1px solid @bkgrnd-color;
+   }
+
+   .menu.selected {
+      color: @color3;
+      background-color: rgba(@color4, 1);
+      pointer-events: none;
+   }
+
+   .menu.selected:hover {
+      color: @color2;
+   }
+
+   .list {
+      position: absolute;
+      width: 300px;
+      min-height: 20px;
+      top: @header-height;
+      right: 0;
+      z-index: 999;
+
+      padding-bottom: 5px;
+
+      background-color: @color4;
+      border: 2px solid @color3;
+      border-top: none;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-content: stretch;
+      align-items: stretch;
+   }
+
+   // .glow {
+   //    box-shadow: 0 0 16px 8px rgba(@color1, 0.5), 0 0 26px 16px rgba(@color2, 0.5), 0 0 36px 24px rgba(@color3, 0.5);
+   // }
+
+   .list-item {
+      // position: relative;
+      margin: 5px 5px 0 5px;
+      padding: 10px;
+
+      font-size: 16px;
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: left;
+      color: @color3;
+
+      border-left: 10px solid @color3;
+
+      background-color: rgba(@color3, 0.1);
+
+      pointer-events: all;
+      cursor: pointer;
+   }
+
+   .list-item:hover {
+      background-color: rgba(@color3, 0.25);
+   }
+
+   .fas,
+   .flag-icon {
+      width: 20px;
+
+      text-align: center;
+   }
+
+   .list .fas,
+   .list .flag-icon {
+      margin-right: 8px;
+   }
+
+   .list-item.selected {
+      color: @bkgrnd-color;
+      border-color: @color1;
+      background-color: @color3;
+
+      pointer-events: none;
+      user-select: none;
+   }
+}
+
+// Mobile Adjustments
+
+// @media screen and (max-width: @site-width) {
+// }

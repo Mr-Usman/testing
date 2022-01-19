@@ -1,0 +1,52 @@
+// sub-property: abbreviation
+@properties: {
+   margin: m;
+   padding: p;
+};
+@sides: {
+   top: t;
+   bottom: b;
+   left: l;
+   right: r;
+};
+@sidesy: top, bottom;
+@sidesx: left, right;
+
+.foo(@number, @prop, @abbr) {
+   .@{abbr}-@{number} {
+      @{prop}: (1px * @number) !important;
+   }
+
+   each(@sides, {
+    .@{abbr}-@{value}-@{number} {
+      @{prop}-@{key}: (1px * @number) !important;
+    }
+  })
+      .@{abbr}-y-@{number} {
+      each(@sidesy, {
+      @{prop}-@{value}: (1px * @number) !important;
+    });
+   }
+
+   .@{abbr}-x-@{number} {
+      each(@sidesx, {
+      @{prop}-@{value}: (1px * @number) !important;
+    });
+   }
+}
+
+.loop(@cursor) when (@cursor > 0) {
+   .loop((@cursor - 1));
+
+   each(@properties, {
+    // make 5x values
+    .foo((@cursor * 5 -  5), @key, @value)
+  });
+
+   each(@properties, {
+    // make 1x values
+    .foo((@cursor * 1 -  1), @key, @value)
+  });
+}
+
+.loop(11);

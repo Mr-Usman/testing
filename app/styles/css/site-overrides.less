@@ -1,0 +1,216 @@
+// site-overrides.less
+
+@import "site-variables.less";
+
+*,
+:after,
+:before {
+   box-sizing: border-box;
+}
+
+html,
+body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   font-size: 16px;
+   -webkit-text-size-adjust: 100%;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+
+   font-family: @font-body;
+   color: @text-color;
+   background-color: @bkgrnd-color;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+   text-decoration: none;
+   // color: inherit;
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}
+
+img {
+   display: block;
+   max-width: 100%;
+   max-height: 100%;
+}
+
+// p {
+//    margin: 0;
+//    padding: 10px 0 0;
+// }
+
+textarea,
+button,
+input[type="submit"],
+input[type="reset"] {
+   background: none;
+   color: inherit;
+   border: none;
+   padding: 0;
+   font: inherit;
+   cursor: pointer;
+   outline: inherit;
+}
+
+button,
+button:hover,
+button:focus,
+input,
+input:hover,
+input:focus,
+textarea,
+textarea:hover,
+textarea:focus {
+   outline: none !important;
+}
+
+textarea {
+   vertical-align: top;
+}
+
+hr {
+   width: 100%;
+   height: 1px;
+   margin: @column-space 0;
+   color: @color3;
+   background-color: @color3;
+
+   border: none;
+   border-bottom: 1px solid @color3;
+}
+
+// h1 {
+//    font-size: 30px;
+//    font-weight: 400;
+//    margin: 10px auto;
+// }
+
+// Autofill Hacks
+
+.form-input,
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill::first-line {
+   font-size: 20px !important;
+   color: @color0 !important;
+   font-family: @font-headline !important;
+   background: @bkgrnd-color !important;
+
+   outline: none !important;
+   -moz-appearance: none;
+   -webkit-appearance: none;
+
+   -webkit-text-fill-color: @color0 !important;
+   -webkit-box-shadow: 0 0 0 30px @bkgrnd-color inset !important;
+
+   -webkit-animation: autofill 0s both;
+   animation: autofill 0s both;
+}
+
+@keyframes autofill {
+   100% {
+      font-size: 20px !important;
+      color: @color0 !important;
+      font-family: @font-headline !important;
+      background: @bkgrnd-color !important;
+   }
+}
+
+@-webkit-keyframes autofill {
+   100% {
+      font-size: 20px !important;
+      color: @color0 !important;
+      font-family: @font-headline !important;
+      background: @bkgrnd-color !important;
+   }
+}
+
+// Slider Input
+
+input[type="range"] {
+   width: 100%;
+   margin: 0;
+   background-color: transparent;
+   -webkit-appearance: none;
+}
+input[type="range"]:focus {
+   outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+   background: @color3;
+   border-radius: 9999px;
+   width: 100%;
+   height: 8px;
+   cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+   margin-top: -8px;
+   width: 24px;
+   height: 24px;
+   background: @color2;
+   border-radius: 50%;
+   cursor: pointer;
+   -webkit-appearance: none;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+   background: @color3;
+}
+input[type="range"]::-moz-range-track {
+   background: @color3;
+   border-radius: 9999px;
+   width: 100%;
+   height: 8px;
+   cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+   width: 24px;
+   height: 24px;
+   background: @color2;
+   border-radius: 50%;
+   cursor: pointer;
+}
+input[type="range"]::-ms-track {
+   background: transparent;
+   border-color: transparent;
+   color: transparent;
+   width: 100%;
+   height: 8px;
+   cursor: pointer;
+}
+input[type="range"]::-ms-fill-lower {
+   background: @color3;
+}
+input[type="range"]::-ms-fill-upper {
+   background: @color3;
+}
+input[type="range"]::-ms-thumb {
+   width: 26px;
+   height: 26px;
+   background: @color2;
+   border-radius: 9999px;
+   cursor: pointer;
+   margin-top: 0px;
+}
+input[type="range"]:focus::-ms-fill-lower {
+   background: @color3;
+}
+input[type="range"]:focus::-ms-fill-upper {
+   background: @color3;
+}
+
+@supports (-ms-ime-align: auto) {
+   input[type="range"] {
+      margin: 0;
+   }
+}

@@ -1,0 +1,229 @@
+// site-panels.less
+
+@import "site-variables.less";
+@import "site-base.less";
+
+// &:extend(.class);
+
+@header-height: 30px;
+@footer-height: 20px;
+
+.panel {
+   position: relative;
+   width: 100%;
+   max-width: @panel-max-width;
+   min-height: 200px;
+   margin: 0 auto;
+   border: 1px solid @color3;
+   border-radius: 0 @footer-height 0 @footer-height;
+
+   background-color: @bkgrnd-color;
+
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   justify-content: flex-start;
+   align-content: space-between;
+   align-items: flex-start;
+
+   // Panel Areas
+
+   .panel-header {
+      flex: 0 1 auto;
+      align-self: auto;
+
+      width: 100%;
+      height: @header-height;
+      display: flex;
+
+      // background-color: rgba(255, 0, 0, 0.2);
+
+      display: flex;
+   }
+
+   .panel-content {
+      flex: 1 1 auto;
+      align-self: auto;
+
+      width: 100%;
+
+      // background-color: rgba(0, 255, 0, 0.2);
+   }
+
+   .panel-footer {
+      flex: 0 1 auto;
+      align-self: auto;
+
+      width: 100%;
+      height: @footer-height;
+
+      display: flex;
+
+      // background-color: rgba(0, 0, 255, 0.2);
+   }
+
+   // Header / Footer Panel Areas
+
+   .panel-left {
+      flex: 0 1 auto;
+      height: 100%;
+
+      // background-color: rgba(255, 0, 0, 0.2);
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+   }
+
+   .panel-mid {
+      flex: 1 1 auto;
+      height: 100%;
+
+      // background-color: rgba(0, 255, 255, 0.2);
+   }
+
+   .panel-right {
+      position: relative;
+      flex: 0 1 auto;
+      width: 30px;
+      height: 100%;
+
+      color: @color3;
+      font-size: 24px;
+      text-align: left;
+      vertical-align: baseline;
+
+      // background-color: rgba(0, 0, 255, 0.2);
+   }
+
+   .panel-right .icon {
+      position: absolute;
+      width: 30px;
+      left: 0;
+      bottom: 0;
+      cursor: pointer;
+   }
+
+   .panel-right .icon:hover {
+      color: @color0;
+   }
+
+   // Panel Header
+
+   .panel-label {
+      height: @header-height;
+      padding: 0 10px 0 20px;
+      line-height: @header-height;
+      font-size: 16px;
+      font-family: @font-headline;
+      font-weight: 700;
+      text-align: left;
+      color: @bkgrnd-color;
+      background-color: @color3;
+   }
+
+   .panel-label > .fas {
+      margin-right: 5px;
+   }
+
+   .panel-triangle-tl {
+      width: @header-height;
+      margin-right: -10px;
+      border-top: @header-height solid @color3;
+      border-right: @header-height solid transparent;
+   }
+
+   .panel-header .panel-mid {
+      padding-left: 10px;
+      // background-color: rgba(0, 255, 255, 0.2);
+   }
+
+   // Panel Corners
+
+   .panel-corner {
+      width: @footer-height;
+      height: @footer-height;
+
+      border-color: @color3;
+      border-style: solid;
+   }
+
+   .panel-corner-tr {
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-width: 4px 4px 0 0;
+      border-radius: 0 @footer-height;
+   }
+
+   .panel-corner-bl {
+      border-width: 0 0 4px 4px;
+      border-radius: 0 @footer-height;
+   }
+
+   .panel-corner-br {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-width: 0 4px 4px 0;
+   }
+
+   // Panel Footer
+
+   .panel-footer .panel-mid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: flex-end;
+   }
+
+   .panel-footer-mid {
+      width: 50%;
+      height: 10px;
+      margin: auto auto 0;
+
+      border-width: 0 1px 4px 1px;
+      border-style: solid;
+   }
+
+   hr {
+      width: 100%;
+      height: 1px;
+      margin: @column-space 0;
+      color: @color3;
+      background-color: @color3;
+
+      border: none;
+      border-bottom: 1px solid @color3;
+   }
+}
+
+.stripe,
+.stripe-bkgrnd {
+   width: 10px;
+   height: 100%;
+   margin: 0 5px;
+   transform: skew(-45deg);
+}
+
+.stripe {
+   background-color: @color3;
+}
+
+.stripe-bkgrnd {
+   background-color: @bkgrnd-color;
+}
+
+.modal {
+   &:extend(.fullscreen);
+   &:extend(.fade);
+   &:extend(.flex-center);
+
+   padding: @column-space;
+   z-index: 9999;
+
+   .panel {
+      box-shadow: 0 10px 30px 0 rgba(@bkgrnd-color, 1), 0 10px 60px 0 rgba(@color3, 0.6);
+   }
+}

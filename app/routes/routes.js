@@ -7,6 +7,7 @@ const Login = React.lazy(() => import('../containers/Login'));
 const SignUp = React.lazy(() => import('../containers/SignUp'));
 const Reset = React.lazy(() => import('../containers/Reset'));
 const UpdatePassword = React.lazy(() => import('../containers/UpdatePassword'));
+const MyProfile = React.lazy(() => import('../containers/MyProfile'));
 const Routes = () => (
   <Suspense fallback="Loading......">
     <Switch>
@@ -14,6 +15,7 @@ const Routes = () => (
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/reset-password" component={Reset} />
       <Route exact path="/update-password" component={UpdatePassword} />
+      <Route exact path="/user" component={MyProfile} />
       <Route exact path="/" component={HomePage} />
       <Route component={NotFoundPage} />
     </Switch>

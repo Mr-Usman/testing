@@ -76,9 +76,7 @@ export function SignUp({ history }) {
     const { hasError, errorMessage} = responseData || {};
     if (!hasError) {
       setLoading(false);
-      localStorage.setItem('token', responseData.token);
-      localStorage.setItem('user', JSON.stringify(responseData.user));
-      window.location.reload();
+      history.push('/login')
     } else {
       setLoading(false);
       setErrorMessage(`Email already exists or ${errorMessage}`);
@@ -111,7 +109,7 @@ export function SignUp({ history }) {
                 <div className="form">
                   
                   <div className="form-text balance-text">Register for system access.</div>
-                  {<div class="group-invalid">{errors[name]}</div>}
+                  {/* {<div class="group-invalid">{errors[name]}</div>} */}
 
                   <Formik
                     initialValues={intialState}
@@ -166,9 +164,13 @@ export function SignUp({ history }) {
                         <div className="btn-group">
                           <div className="btn-space" />
                           <div className="btn-hold">
-                            <button type="submit" className="btn btn-primary">
+                          {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loading...
+                              </button> :  <button type="submit" className="btn btn-primary">
                               <i className="fas fa-user-plus" />Register
-                            </button>
+                            </button>}
+                           
                           </div>
                           <div className="btn-space" />
                         </div>

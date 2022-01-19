@@ -14,8 +14,8 @@ const Routes = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/reset-password" component={Reset} />
-      <Route exact path="/update-password" component={UpdatePassword} />
       <Route exact path="/user" component={MyProfile} />
+      <Route exact path="/reset" component={UpdatePassword} />
       <Route exact path="/" component={HomePage} />
       <Route component={NotFoundPage} />
     </Switch>

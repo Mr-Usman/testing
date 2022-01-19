@@ -49,14 +49,12 @@ export const useApi = (
       setHasError(false);
       // If GET request, data should be sent as query string
       if (data && options.method === 'GET') {
-        queryString =
-          '?' +
-          Object.keys(data)
-            .map(
-              key =>
-                encodeURIComponent(key) + '=' + encodeURIComponent(data[key]),
-            )
-            .join('&');
+        queryString = `?${Object.keys(data)
+          .map(
+            key =>
+              `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`,
+          )
+          .join('&')}`;
       }
     }
     fetchOptions = _makeOptions(data);

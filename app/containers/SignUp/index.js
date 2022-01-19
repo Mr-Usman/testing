@@ -13,10 +13,10 @@ import { compose } from 'redux';
 import { Link } from 'react-router-dom';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
+import { Formik, Form, Field } from 'formik';
 import { signupSchema } from '../../validations/index';
 import makeSelectSignUp from './selectors';
 import reducer from './reducer';
-import { Formik, Form, Field } from 'formik';
 
 import saga from './saga';
 import Header from '../../components/Header';
@@ -29,7 +29,6 @@ export function SignUp({ history }) {
   useInjectSaga({ key: 'signUp', saga });
   const [errorMessage, setErrorMessage] = useState('');
 
-
   useEffect(() => {
     localStorage.clear();
   }, []);
@@ -39,7 +38,7 @@ export function SignUp({ history }) {
   const intialState = {
     firstName: '',
     email: '',
-    password: ''
+    password: '',
   };
 
   const formFields = [
@@ -47,14 +46,14 @@ export function SignUp({ history }) {
       type: 'text',
       name: 'firstName',
       label: 'First Name',
-      placeholder: 'Enter First Name'
+      placeholder: 'Enter First Name',
     },
     {
       type: 'text',
       name: 'email',
       label: 'Email',
       placeholder: 'Enter Email',
-      isEmailField: true
+      isEmailField: true,
     },
     {
       type: 'password',
@@ -62,18 +61,16 @@ export function SignUp({ history }) {
       label: 'Password',
       placeholder: 'Enter Password',
       isPaswordField: true,
-      isShowPasswordStrength: true
+      isShowPasswordStrength: true,
+    },
+  ];
 
-    }
-  ]
-
- 
-  const handleSubmit = async(values) => {
+  const handleSubmit = async values => {
     console.log('values', values);
     setLoading(true);
     const { responseData, isLoading } = await createUser(values);
     setLoading(isLoading);
-    const { hasError, errorMessage} = responseData || {};
+    const { hasError, errorMessage } = responseData || {};
     if (!hasError) {
       setLoading(false);
       localStorage.setItem('token', responseData.token);
@@ -83,7 +80,7 @@ export function SignUp({ history }) {
       setLoading(false);
       setErrorMessage(`Email already exists or ${errorMessage}`);
     }
-  }
+  };
 
   return (
     <div className="wrapper">
@@ -95,7 +92,10 @@ export function SignUp({ history }) {
             <div className="panel">
               <div className="panel-header">
                 <div className="panel-left">
-                  <div className="panel-label"><i className="fas fa-user-plus" />Register</div>
+                  <div className="panel-label">
+                    <i className="fas fa-user-plus" />
+                    Register
+                  </div>
                   <div className="panel-triangle-tl" />
                   <div className="stripe" />
                   <div className="stripe" />
@@ -109,8 +109,9 @@ export function SignUp({ history }) {
               <div className="panel-content">
                 {/* FORM START */}
                 <div className="form">
-                  
-                  <div className="form-text balance-text">Register for system access.</div>
+                  <div className="form-text balance-text">
+                    Register for system access.
+                  </div>
                   {/* {<div class="group-invalid">{errors[name]}</div>} */}
 
                   <Formik
@@ -128,7 +129,6 @@ export function SignUp({ history }) {
                       handleBlur,
                       handleSubmit,
                       isSubmitting,
-             
                     }) => (
                       <Form>
                         {formFields.map((field, index) => {
@@ -154,20 +154,28 @@ export function SignUp({ history }) {
                               // setFieldTouched={() =>
                               //   setFieldTouched(field.name, true)
                               // }
-                            />)
-                        }
-                        )}
-                        <div className="form-info balance-text" style={{ marginTop: '-5px' }}>
-                          You must be least 18 years old to use this site. By creating an account, you agree to the
+                            />
+                          );
+                        })}
+                        <div
+                          className="form-info balance-text"
+                          style={{ marginTop: '-5px' }}
+                        >
+                          You must be least 18 years old to use this site. By
+                          creating an account, you agree to the
                         </div>
                         <div className="m-b-25">
-                          <Link className="btn btn-link text-sm" to="#"><i className="fas fa-book" />Privacy &amp; Legal Policies</Link>
+                          <Link className="btn btn-link text-sm" to="#">
+                            <i className="fas fa-book" />
+                            Privacy &amp; Legal Policies
+                          </Link>
                         </div>
                         <div className="btn-group">
                           <div className="btn-space" />
                           <div className="btn-hold">
                             <button type="submit" className="btn btn-primary">
-                              <i className="fas fa-user-plus" />Register
+                              <i className="fas fa-user-plus" />
+                              Register
                             </button>
                           </div>
                           <div className="btn-space" />
@@ -175,7 +183,6 @@ export function SignUp({ history }) {
                       </Form>
                     )}
                   </Formik>
-
                 </div>
                 {/* FORM END */}
               </div>
@@ -193,7 +200,10 @@ export function SignUp({ history }) {
             </div>
             <div className="btn-link-group balance-text">
               Already have an account?
-              <Link className="btn btn-link" to="/login"><i className="fas fa-sign-in-alt" />Sign In</Link>
+              <Link className="btn btn-link" to="/login">
+                <i className="fas fa-sign-in-alt" />
+                Sign In
+              </Link>
             </div>
             {/* MAIN AREA END */}
           </main>

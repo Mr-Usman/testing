@@ -35,8 +35,7 @@ export function UpdatePassword({ history }) {
   };
   useEffect(() => {
     console.log(history);
-    
-  },[])
+  }, []);
   const formFields = [
     {
       type: 'password',

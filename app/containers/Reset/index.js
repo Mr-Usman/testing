@@ -4,12 +4,13 @@
  *
  */
 
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { resetPasswordSchema } from '../../validations/index';
+import { useApi } from '../../components/customHooks/useApi';
 
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -25,7 +26,10 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CustomFeild from '../../components/Form/CustomField';
 
-export function Reset() {
+export function Reset({ history }) {
+  const url = '/users/sendforgetPasswordEmail';
+  const [, resetUser] = useApi(url, {}, { method: 'POST' }, false);
+  const [loading, setLoading] = useState(false); 
   useInjectReducer({ key: 'reset', reducer });
   useInjectSaga({ key: 'reset', saga });
   const intialState = {
@@ -41,8 +45,18 @@ export function Reset() {
     }
   ];
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     console.log('values', values);
+    setLoading(true);
+    const { responseData, isLoading } = await resetUser(values);
+    setLoading(isLoading); 
+    const { hasError, errorMessage} = responseData || {};
+    if (!hasError) {
+      setLoading(false);
+      // history.push('/login');
+    } else {
+      setLoading(false);
+    }
   }
 
   return (

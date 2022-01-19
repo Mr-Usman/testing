@@ -111,7 +111,7 @@ export function SignUp({ history }) {
                 <div className="form">
                   
                   <div className="form-text balance-text">Register for system access.</div>
-                  {<div class="group-invalid">{errors[name]}</div>}
+                  {/* {<div class="group-invalid">{errors[name]}</div>} */}
 
                   <Formik
                     initialValues={intialState}

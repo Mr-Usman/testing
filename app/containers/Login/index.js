@@ -4,12 +4,12 @@
  *
  */
 
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import { loginSchema } from '../../validations/index';
+import { loginSchema } from '../../validations/index'; 
 import { Link } from 'react-router-dom';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
@@ -20,7 +20,12 @@ import saga from './saga';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CustomFeild from '../../components/Form/CustomField';
-export function Login() {
+import { useApi } from '../../components/customHooks/useApi';
+
+export function Login({ history }) {
+  const url = '/users/login';
+  const [, loginUser] = useApi(url, {}, { method: 'POST' }, false);
+  const [loading, setLoading] = useState(false);
   useInjectReducer({ key: 'login', reducer });
   useInjectSaga({ key: 'login', saga });
   const intialState = {
@@ -45,8 +50,20 @@ export function Login() {
 
     }
   ];
-  const handleSubmit = (values) => {
-    console.log('values', values);
+  const handleSubmit = async (values) => {
+    console.log('values', values); 
+    setLoading(true);
+    const { responseData, isLoading } = await loginUser(values);
+    setLoading(isLoading); 
+    const { hasError, errorMessage} = responseData || {};
+    if (!hasError) {
+      setLoading(false);
+      localStorage.setItem('token', responseData.token);
+      localStorage.setItem('user', JSON.stringify(responseData.user));
+      history.push('/user');
+    } else {
+      setLoading(false);
+    }
   }
   return (
     <>

@@ -14,7 +14,7 @@ function Header() {
     <>
       <header className="header">
         <nav className="header-nav">
-          <a className="logo" href="index.html">
+          <a className="logo" href="/">
             <img src={logo} alt="Logo" width={148} height={30} />
           </a>
           <div className="space" />
@@ -27,7 +27,7 @@ function Header() {
         </nav>
       </header>
     </>
-  )
+  );
 }
 
 Header.propTypes = {};

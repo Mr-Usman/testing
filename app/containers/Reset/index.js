@@ -24,6 +24,7 @@ import saga from './saga';
 import messages from './messages';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import '../../styles/css/site-forms.less';
 import CustomFeild from '../../components/Form/CustomField';
 
 export function Reset({ history }) {
@@ -42,6 +43,7 @@ export function Reset({ history }) {
       label: 'Email',
       placeholder: 'Enter Email',
       isEmailField: true,
+      isReset: true
     },
   ];
 
@@ -62,6 +64,9 @@ export function Reset({ history }) {
   return (
     <div className="wrapper">
       <Header />
+
+      {/* FORM START */}
+
       <section className="content">
         <div className="content-upper">
           <main className="content-upper-main">
@@ -80,12 +85,13 @@ export function Reset({ history }) {
                   <div className="panel-corner panel-corner-tr" />
                 </div>
               </div>
-
               <div className="panel-content">
                 {/* FORM START */}
                 <div className="form">
                   <div className="form-text balance-text">Request a password reset email.</div>
-                  </div>
+
+
+
 
                   <Formik
                     initialValues={intialState}
@@ -113,20 +119,6 @@ export function Reset({ history }) {
                               errors={errors}
                               touched={touched}
                               onChange={handleChange}
-                              // setFieldValue={(selected, key = '') => {
-                              //   let value;
-                              //   if (key === 'channelId' || key === 'roleId') {
-                              //     value = selected;
-                              //   } else {
-                              //     value =
-                              //       selected.length > 0 ? selected[0].id : '';
-
-                              //   }
-                              //   setFieldValue(field.name, value, true);
-                              // }}
-                              // setFieldTouched={() =>
-                              //   setFieldTouched(field.name, true)
-                              // }
                             />
                           );
                         })}
@@ -134,48 +126,59 @@ export function Reset({ history }) {
                         <div className="btn-group">
                           <div className="btn-space" />
                           <div className="btn-hold">
-                          {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                Loading...
-                              </button> :  <button type="submit" className="btn btn-primary">
+                            {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
+                              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                              Loading...
+                            </button> : <button type="submit" className="btn btn-primary">
                               <i className="fas fa-envelope" />Send Email
                             </button>}
-                            
+
                           </div>
                           <div className="btn-space" />
                         </div>
                       </Form>
                     )}
                   </Formik>
+
+
                 </div>
                 {/* FORM END */}
               </div>
-              <div className="panel-footer">
-                <div className="panel-left">
-                  <div className="panel-corner panel-corner-bl" />
-                </div>
-                <div className="panel-mid">
-                  <div className="panel-corner panel-footer-mid" />
-                </div>
-                <div className="panel-right">
-                  <div className="panel-corner panel-corner-br" />
-                </div>
-              </div>
-            <div className="btn-link-group balance-text">
-              Remembered your password?
-              <Link className="btn btn-link" to="/login"><i className="fas fa-sign-in-alt" />Sign In</Link>
-            </div>
-      
-            {/* MAIN AREA END */}
-        
-          </main>
-        
+            </div></main></div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+      <div className="panel-footer">
+        <div className="panel-left">
+          <div className="panel-corner panel-corner-bl" />
         </div>
-   
-      </section>
+        <div className="panel-mid">
+          <div className="panel-corner panel-footer-mid" />
+        </div>
+        <div className="panel-right">
+          <div className="panel-corner panel-corner-br" />
+        </div>
+      </div>
+      <div className="btn-link-group balance-text">
+        Remembered your password?
+        <Link className="btn btn-link" to="/signin"><i className="fas fa-sign-in-alt" />Sign In</Link>
+      </div>
+
+      {/* MAIN AREA END */}
+
+
       <Footer />
     </div>
-  
+
   );
 }
 

@@ -14,10 +14,7 @@ export const signupSchema = Yup.object().shape({
       }),
     password: Yup.string().required(() => {
         return 'Password is required';
-    }).matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-      )
+    }).min(10)
   });
 
   export const loginSchema = Yup.object().shape({
@@ -43,10 +40,7 @@ export const signupSchema = Yup.object().shape({
   export const updatePasswordSchema = Yup.object().shape({
     password: Yup.string().required(() => {
         return 'Password is required';
-    }).matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-      ),
+    }).min(10),
     passwordConfirmation: Yup.string()
      .oneOf([Yup.ref('password'), null], 'Passwords must match')
 

@@ -184,7 +184,7 @@ export function Login({ history }) {
               </div>
               <div className="btn-link-group balance-text">
                 Don't have an account?
-                <Link className="btn btn-link" to="/signup">
+                <Link className="btn btn-link" to="/register">
                   <i className="fas fa-user-plus" />
                   Register
                 </Link>

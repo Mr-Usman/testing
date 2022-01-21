@@ -120,15 +120,16 @@ const InputField = ({
   isEmailField,
   onChange,
   isShowPasswordStrength,
-  isPassValid
+  isPassValid,
+  isReset
 }) => {
   const [show, setShow] = useState(true);
   return(
   <>
     <div className="form-group">
-      <label className="group-label" htmlFor={name}>{label}<i className="fas fa-shield-alt label-icon" /></label>
+      <label className={`group-label`} htmlFor={name}>{label}<i className="fas fa-shield-alt label-icon" /></label>
       <div className="input-group">
-        <input id={name} name={name} type={show ? type : 'get'} className="form-input" autoComplete="off" onChange={onChange} defaultValue={placeholder} />
+        <input id={name} name={name} type={show ? type : 'get'} className="form-input" autoComplete="off" onChange={onChange} />
         {isPaswordField && <button type="button" onClick={() => setShow(!show)} className="btn btn-secondary-outline btn-square">
           <i className="fas fa-eye" />
         </button>}
@@ -331,6 +332,7 @@ const CustomFeild = ({
       isShowPasswordStrength={feild.isShowPasswordStrength}
       isEmailField={feild.isEmailField}
       onChange={onChange}
+      isReset={feild.isReset}
     />
   );
 };

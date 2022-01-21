@@ -25,20 +25,20 @@ export const links = [
       breakLine: false
     },
     {
-      ref: '/signup',
-      text: 'Register',
+      ref: '/register',
+      text: 'Register *',
       icon: 'fas fa-user-plus',
       breakLine: false
     },
     {
-      ref: '/login',
-      text: 'Sign In',
+      ref: '/signin',
+      text: 'Sign In *',
       icon: 'fas fa-sign-in-alt',
       breakLine: false
     },
     {
       ref: '/reset-password',
-      text: 'Reset Password',
+      text: 'Reset Password *',
       icon: 'fas fa-undo-alt',
       breakLine: true
     },

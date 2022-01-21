@@ -46,20 +46,20 @@ export function SignUp({ history }) {
       type: 'text',
       name: 'firstName',
       label: 'First Name',
-      placeholder: 'Enter First Name',
+      placeholder: '',
     },
     {
       type: 'text',
       name: 'email',
       label: 'Email',
-      placeholder: 'Enter Email',
+      placeholder: '',
       isEmailField: true,
     },
     {
       type: 'password',
       name: 'password',
       label: 'Password',
-      placeholder: 'Enter Password',
+      placeholder: '',
       isPaswordField: true,
       isShowPasswordStrength: true,
     },
@@ -73,7 +73,7 @@ export function SignUp({ history }) {
     const { hasError, errorMessage, success } = responseData || {};
     if (!hasError && success) {
       setLoading(false);
-      history.push('/login')
+      history.push('/signin')
     } else {
       setLoading(false);
       alert(`Email already exists or ${errorMessage}`)
@@ -201,10 +201,12 @@ export function SignUp({ history }) {
             </div>
             <div className="btn-link-group balance-text">
               Already have an account?
-              <Link className="btn btn-link" to="/login">
-                <i className="fas fa-sign-in-alt" />
+              <div style={{marginTop: '20px'}}>
+              <Link className="btn-link-group balance-text" to="/signin">
+               <i className="fas fa-sign-in-alt" /> {' '}
                 Sign In
               </Link>
+              </div>
             </div>
             {/* MAIN AREA END */}
           </main>

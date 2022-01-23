@@ -82,7 +82,7 @@
 
       padding-bottom: 5px;
 
-      background-color: @color4;
+      background-color: @bkgrnd-color;
       border: 2px solid @color3;
       border-top: none;
 
@@ -118,7 +118,7 @@
    }
 
    .list-item:hover {
-      background-color: rgba(@color3, 0.25);
+      background-color: rgba(@color4, 1);
    }
 
    .fas,
@@ -134,9 +134,9 @@
    }
 
    .list-item.selected {
-      color: @bkgrnd-color;
+      color: @color1;
       border-color: @color1;
-      background-color: @color3;
+      background-color: rgba(@color1, 0.1);
 
       pointer-events: none;
       user-select: none;

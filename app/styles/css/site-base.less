@@ -5,22 +5,22 @@
 // Sizes
 
 .lg {
-   min-width: 50px;
-   height: 50px;
+   min-width: @lg;
+   height: @lg;
    font-size: 16px;
    line-height: 48px;
 }
 
 .md {
-   min-width: 40px;
-   height: 40px;
+   min-width: @md;
+   height: @md;
    font-size: 14px;
    line-height: 38px;
 }
 
 .sm {
-   min-width: 30px;
-   height: 30px;
+   min-width: @sm;
+   height: @sm;
    font-size: 12px;
    line-height: 28px;
 }
@@ -89,6 +89,14 @@
    color: @color3;
 }
 
+.text-bkgrnd {
+   color: @bkgrnd-color;
+}
+
+.text-emphasis {
+   color: @emphasis;
+}
+
 .text-danger {
    color: @danger;
 }
@@ -122,10 +130,15 @@
 .text-currency {
    color: @color0;
    font-family: @font-headline;
+   white-space: nowrap !important;
 }
 
 .text-center {
    text-align: center;
+}
+
+.text-right {
+   text-align: right;
 }
 
 .text-muted {
@@ -144,9 +157,9 @@
 //    font-size: 20px;
 // }
 
-// .fs-26 {
-//    font-size: 26px;
-// }
+.fs-26 {
+   font-size: 26px;
+}
 
 .text-sm {
    font-size: 12px;
@@ -171,14 +184,18 @@
 //    background-color: @bkgrnd-color;
 // }
 
-.demo-btn {
-   outline: 1px solid red;
-}
+// .demo-btn {
+//    outline: 1px dotted red;
+// }
 
-.float-left {
-   float: left;
-}
+// .float-left {
+//    float: left;
+// }
 
-.float-right {
-   float: right;
-}
+// .float-right {
+//    float: right;
+// }
+
+// .nowrap {
+//    white-space: nowrap;
+// }

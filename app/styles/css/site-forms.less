@@ -46,19 +46,6 @@
       background-color: @color2;
    }
 
-   .testing-group {
-      display: block;
-      width: 100%;
-      padding: 1px 0;
-      font-size: 14px;
-      font-family: "Orbitron", monospace;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
-      color: #00142d;
-      background-color: #32c8ff;
-   }
-
    .group-info {
       padding: 5px;
       border-radius: 0;
@@ -305,86 +292,111 @@
    }
 
    .form-flex {
-      // &:extend(.flex-center);
+      margin: @column-space;
+
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: flex-start;
-      align-content: stretch;
+      align-content: flex-start;
       align-items: flex-start;
+
       gap: @column-space;
 
-      margin: @column-space;
+      // background-color: rgba(255, 0, 0, 0.2);
+
+      .flex-item {
+         // width: 30%;
+         // min-width: 220px;
+
+         flex: 1 1 auto;
+         align-self: flex-start;
+
+         // margin: 0 @column-space * 0.5;
+
+         // background-color: rgba(255, 255, 0, 0.2);
+      }
    }
 
    /* CHECK BOX */
 
-   .form-check {
+   .form-select {
       &:extend(.sm);
 
-      width: 30%;
-      min-width: 220px;
-      margin: 0 @column-space;
-      text-align: left;
+      display: inline-block;
+      margin: auto;
 
       // background-color: rgba(255, 255, 0, 0.2);
    }
 
-   .form-check:focus-within .form-check-icon {
-      border: 1px solid @emphasis;
-      // background-color: rgba(255, 255, 0, 0.2);
-   }
+   // .form-select:focus-within .form-select-icon {
+   //    border: 1px solid @emphasis;
+   //    // background-color: rgba(255, 255, 0, 0.2);
+   // }
 
-   .form-check-input {
+   .form-check-input,
+   .form-radio-input {
       // display: none;
       opacity: 0.01;
+      position: absolute;
    }
 
-   .form-check-label {
+   .form-select-label {
       &:extend(.sm);
       position: relative;
       display: inline-block;
 
       font-size: 18px;
-      font-family: @font-headline;
+      font-family: @font-body;
       font-weight: 400;
-      text-align: center;
-      color: @color0;
+      // text-align: left;
+      color: @color2;
       user-select: none;
 
       display: flex;
       align-items: center;
    }
 
-   .form-check-icon {
-      &:extend(.sm);
-      position: relative;
-      display: inline-block;
-
+   .form-select .fas,
+   .form-select .far {
+      font-size: 25px;
       margin-right: 10px;
-      border: 1px solid @color2;
    }
 
-   .form-check-input:checked + .form-check-icon::before {
-      &:extend(.sm);
-      position: absolute;
-      display: inline-block;
+   // .form-check-icon,
+   // .form-radio-icon {
+   //    &:extend(.sm);
 
-      top: 0;
-      left: -1px;
+   //    color: @color0;
+   //    margin-right: 10px;
+   //    border: 2px solid @color2;
+   // }
 
-      font-size: 18px;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 400;
-      text-align: center;
+   // .form-radio-icon {
+   //    border-radius: 50%;
+   // }
 
-      content: "\f00c";
-   }
+   // .form-check-input:checked + .form-check-icon::before,
+   // .form-radio-input:checked + .form-radio-icon::before {
+   //    font-family: "Font Awesome 5 Free";
+   //    font-weight: 400;
+   //    text-align: center;
+   // }
+
+   // .form-check-input:checked + .form-check-icon::before {
+   //    font-size: 16px;
+   //    content: "\f00c";
+   // }
+
+   // .form-radio-input:checked + .form-radio-icon::before {
+   //    font-size: 13px;
+   //    content: "\f111";
+   // }
 
    .qty {
       font-family: @font-body;
       font-size: 14px;
-      color: @color2;
+      color: @color3;
       margin-left: 5px;
    }
 }

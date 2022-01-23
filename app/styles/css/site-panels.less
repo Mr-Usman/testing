@@ -7,6 +7,7 @@
 
 @header-height: 30px;
 @footer-height: 20px;
+@corner-size: 20px;
 
 .panel {
    position: relative;
@@ -85,7 +86,7 @@
    .panel-right {
       position: relative;
       flex: 0 1 auto;
-      width: 30px;
+      width: @corner-size;
       height: 100%;
 
       color: @color3;
@@ -98,7 +99,7 @@
 
    .panel-right .icon {
       position: absolute;
-      width: 30px;
+      width: ;
       left: 0;
       bottom: 0;
       cursor: pointer;
@@ -110,19 +111,30 @@
 
    // Panel Header
 
-   .panel-label {
+   .panel-label,
+   .section-label {
       height: @header-height;
       padding: 0 10px 0 20px;
       line-height: @header-height;
-      font-size: 16px;
+      font-size: 14px;
       font-family: @font-headline;
       font-weight: 700;
       text-align: left;
       color: @bkgrnd-color;
       background-color: @color3;
+      text-transform: uppercase;
    }
 
-   .panel-label > .fas {
+   .section-label {
+      color: @color3;
+      background-color: @color4;
+
+      border-top: 1px solid @color3;
+      // border-bottom: 1px solid @color3;
+   }
+
+   .panel-label > .fas,
+   .section-label > .fas {
       margin-right: 5px;
    }
 
@@ -141,8 +153,8 @@
    // Panel Corners
 
    .panel-corner {
-      width: @footer-height;
-      height: @footer-height;
+      width: @corner-size;
+      height: @corner-size;
 
       border-color: @color3;
       border-style: solid;
@@ -153,12 +165,12 @@
       right: 0;
       top: 0;
       border-width: 4px 4px 0 0;
-      border-radius: 0 @footer-height;
+      border-radius: 0 @corner-size;
    }
 
    .panel-corner-bl {
       border-width: 0 0 4px 4px;
-      border-radius: 0 @footer-height;
+      border-radius: 0 @corner-size;
    }
 
    .panel-corner-br {
@@ -207,8 +219,16 @@
    transform: skew(-45deg);
 }
 
-.stripe {
-   background-color: @color3;
+.stripe1 {
+   background-color: rgba(@color3, 0.75);
+}
+
+.stripe2 {
+   background-color: rgba(@color3, 0.5);
+}
+
+.stripe3 {
+   background-color: rgba(@color3, 0.25);
 }
 
 .stripe-bkgrnd {

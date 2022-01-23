@@ -10,11 +10,14 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import LinkComponent from '../../components/Link';
 import { links } from '../../configs/index-config';
+import GlobalStyle from '../../global-styles';
+
 export default function HomePage() {
 
   return (
     <div className="wrapper">
       <Header />
+      <GlobalStyle />
       <section className="content">
         <div className="content-upper">
           <main className="content-upper-main">

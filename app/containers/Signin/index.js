@@ -1,6 +1,6 @@
 /**
  *
- * Login
+ * Signin
  *
  */
 
@@ -13,8 +13,8 @@ import { Link } from 'react-router-dom';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { Formik, Form, Field } from 'formik';
-import makeSelectLogin from './selectors';
-import { loginSchema } from '../../validations/index';
+import makeSelectSignin from './selectors';
+import { signinSchema } from '../../validations/index';
 import reducer from './reducer';
 import saga from './saga';
 import Header from '../../components/Header';
@@ -22,12 +22,12 @@ import Footer from '../../components/Footer';
 import CustomFeild from '../../components/Form/CustomField';
 import { useApi } from '../../components/customHooks/useApi';
 
-export function Login({ history }) {
-  const url = '/users/login';
-  const [, loginUser] = useApi(url, {}, { method: 'POST' }, false);
+export function Signin({ history }) {
+  const url = '/users/signin';
+  const [, signinUser] = useApi(url, {}, { method: 'POST' }, false);
   const [loading, setLoading] = useState(false);
-  useInjectReducer({ key: 'login', reducer });
-  useInjectSaga({ key: 'login', saga });
+  useInjectReducer({ key: 'signin', reducer });
+  useInjectSaga({ key: 'signin', saga });
   const intialState = {
     email: '',
     password: '',
@@ -52,7 +52,7 @@ export function Login({ history }) {
   const handleSubmit = async values => {
     console.log('values', values);
     setLoading(true);
-    const { responseData, isLoading } = await loginUser(values);
+    const { responseData, isLoading } = await signinUser(values);
     setLoading(isLoading);
     const { hasError, errorMessage, sucess = '', msg = '' } = responseData || {};
     if (!hasError && sucess) {
@@ -100,7 +100,7 @@ export function Login({ history }) {
 
                     <Formik
                       initialValues={intialState}
-                      validationSchema={loginSchema}
+                      validationSchema={signinSchema}
                       onSubmit={values => {
                         handleSubmit(values);
                       }}
@@ -151,7 +151,7 @@ export function Login({ history }) {
                           <div className="btn-group">
                             <div className="btn-space" />
                             <div className="btn-hold">
-                            {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
+                            {loading ? <button class="btn btn-primary signin-btn" type="button" disabled>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...
                               </button> : <button type="submit" className="btn btn-primary">
@@ -197,12 +197,12 @@ export function Login({ history }) {
   );
 }
 
-Login.propTypes = {
+Signin.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  login: makeSelectLogin(),
+  signin: makeSelectSignin(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -219,4 +219,4 @@ const withConnect = connect(
 export default compose(
   withConnect,
   memo,
-)(Login);
+)(Signin);

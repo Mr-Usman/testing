@@ -55,7 +55,7 @@ export function Reset({ history }) {
     const { hasError, errorMessage } = responseData || {};
     if (!hasError) {
       setLoading(false);
-      // history.push('/login');
+      // history.push('/signin');
     } else {
       setLoading(false);
     }
@@ -126,7 +126,7 @@ export function Reset({ history }) {
                         <div className="btn-group">
                           <div className="btn-space" />
                           <div className="btn-hold">
-                            {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
+                            {loading ? <button class="btn btn-primary signin-btn" type="button" disabled>
                               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                               Loading...
                             </button> : <button type="submit" className="btn btn-primary">

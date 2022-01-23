@@ -1,6 +1,6 @@
 /**
  *
- * Tests for Login
+ * Tests for Signin
  *
  * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
  *
@@ -10,13 +10,13 @@ import React from 'react';
 import { render } from 'react-testing-library';
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
-import { Login } from '../index';
+import { Signin } from '../index';
 
-describe('<Login />', () => {
+describe('<Signin />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
     const dispatch = jest.fn();
-    render(<Login dispatch={dispatch} />);
+    render(<Signin dispatch={dispatch} />);
     expect(spy).not.toHaveBeenCalled();
   });
 
@@ -32,7 +32,7 @@ describe('<Login />', () => {
   it.skip('Should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<Login />);
+    } = render(<Signin />);
     expect(firstChild).toMatchSnapshot();
   });
 });

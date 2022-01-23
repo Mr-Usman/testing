@@ -1,6 +1,6 @@
 /*
  *
- * Login reducer
+ * Signin reducer
  *
  */
 import produce from 'immer';
@@ -9,7 +9,7 @@ import { DEFAULT_ACTION } from './constants';
 export const initialState = {};
 
 /* eslint-disable default-case, no-param-reassign */
-const loginReducer = (state = initialState, action) =>
+const signinReducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
       case DEFAULT_ACTION:
@@ -17,4 +17,4 @@ const loginReducer = (state = initialState, action) =>
     }
   });
 
-export default loginReducer;
+export default signinReducer;

@@ -142,45 +142,45 @@ export function Reset({ history }) {
 
 
                 </div>
-                {/* FORM END */}
+              {/* FORM END */}
               </div>
-            </div></main></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-      <div className="panel-footer">
-        <div className="panel-left">
-          <div className="panel-corner panel-corner-bl" />
+              <div className="panel-footer">
+                <div className="panel-left">
+                  <div className="panel-corner panel-corner-bl" />
+                </div>
+                <div className="panel-mid">
+                  <div className="panel-corner panel-footer-mid" />
+                </div>
+                <div className="panel-right">
+                  <div className="panel-corner panel-corner-br" />
+                </div>
+              </div>
+            </div>
+            <div className="btn-link-group balance-text">
+              Remembered your password?
+              <Link className="btn btn-link" to="/signin">
+               <i className="fas fa-sign-in-alt" />Sign In
+              </Link>
+            </div>
+            {/* MAIN AREA END */}
+          </main>
         </div>
-        <div className="panel-mid">
-          <div className="panel-corner panel-footer-mid" />
-        </div>
-        <div className="panel-right">
-          <div className="panel-corner panel-corner-br" />
-        </div>
-      </div>
-      <div className="btn-link-group balance-text">
-        Remembered your password?
-        <Link className="btn btn-link" to="/signin"><i className="fas fa-sign-in-alt" />Sign In</Link>
-      </div>
-
-      {/* MAIN AREA END */}
-
-
+      </section>
       <Footer />
     </div>
-
   );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 Reset.propTypes = {
   dispatch: PropTypes.func.isRequired,

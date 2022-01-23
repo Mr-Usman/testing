@@ -200,12 +200,9 @@ export function SignUp({ history }) {
             </div>
             <div className="btn-link-group balance-text">
               Already have an account?
-              <div style={{marginTop: '20px'}}>
-              <Link className="btn-link-group balance-text" to="/signin">
-               <i className="fas fa-sign-in-alt" /> {' '}
-                Sign In
+              <Link className="btn btn-link" to="/signin">
+               <i className="fas fa-sign-in-alt" />Sign In
               </Link>
-              </div>
             </div>
             {/* MAIN AREA END */}
           </main>

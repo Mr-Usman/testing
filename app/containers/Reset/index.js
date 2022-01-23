@@ -74,7 +74,7 @@ export function Reset({ history }) {
             <div className="panel">
               <div className="panel-header">
                 <div className="panel-left">
-                  <div className="panel-label"><i className="fas fa-undo-alt" />Reset Password</div>
+                  <div className="panel-label">Reset Password</div>
                   <div className="panel-triangle-tl" />
                   <div className="stripe" />
                   <div className="stripe" />
@@ -130,7 +130,7 @@ export function Reset({ history }) {
                               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                               Loading...
                             </button> : <button type="submit" className="btn btn-primary">
-                              <i className="fas fa-envelope" />Send Email
+                              Send Email
                             </button>}
 
                           </div>

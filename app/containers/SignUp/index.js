@@ -91,7 +91,6 @@ export function SignUp({ history }) {
               <div className="panel-header">
                 <div className="panel-left">
                   <div className="panel-label">
-                    <i className="fas fa-user-plus" />
                     Register
                   </div>
                   <div className="panel-triangle-tl" />
@@ -175,7 +174,7 @@ export function SignUp({ history }) {
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...
                               </button> :  <button type="submit" className="btn btn-primary">
-                              <i className="fas fa-user-plus" />Register
+                              Register
                             </button>}
                            
                           </div>

@@ -77,7 +77,6 @@ export function Login({ history }) {
                 <div className="panel-header">
                   <div className="panel-left">
                     <div className="panel-label">
-                      <i className="fas fa-sign-in-alt" />
                       Sign In
                     </div>
                     <div className="panel-triangle-tl" />
@@ -155,8 +154,7 @@ export function Login({ history }) {
                             {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...
-                              </button> :   <button type="submit" className="btn btn-primary">
-                                <i className="fas fa-sign-in-alt" />
+                              </button> : <button type="submit" className="btn btn-primary">
                                 Sign In
                               </button>}
                             

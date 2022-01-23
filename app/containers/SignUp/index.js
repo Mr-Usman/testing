@@ -94,9 +94,9 @@ export function SignUp({ history }) {
                     Register
                   </div>
                   <div className="panel-triangle-tl" />
-                  <div className="stripe" />
-                  <div className="stripe" />
-                  <div className="stripe" />
+                  <div className="stripe stripe1" />
+                    <div className="stripe stripe2" />
+                    <div className="stripe stripe3" />
                 </div>
                 <div className="panel-mid" />
                 <div className="panel-right">

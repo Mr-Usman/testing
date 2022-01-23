@@ -1,0 +1,14 @@
+{
+   "folders": [
+      {
+         "path": "app"
+      }
+   ],
+   "settings": {
+      "files.exclude": {
+         "**/.htaccess": true,
+         "**/.nginx.conf": true,
+         "**/i18n.js": true,
+      }
+   }
+}

@@ -1,6 +1,6 @@
 /*
  *
- * SignUp actions
+ * Login actions
  *
  */
 

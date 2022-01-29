@@ -86,27 +86,27 @@
    .panel-right {
       position: relative;
       flex: 0 1 auto;
-      width: @corner-size;
+      // width: @corner-size;
       height: 100%;
 
       color: @color3;
-      font-size: 24px;
       text-align: left;
       vertical-align: baseline;
+
+      &:extend(.text5);
+      // font-size: 24px;
 
       // background-color: rgba(0, 0, 255, 0.2);
    }
 
-   .panel-right .icon {
-      position: absolute;
-      width: ;
-      left: 0;
-      bottom: 0;
+   .close-btn {
+      margin: 5px;
+
       cursor: pointer;
    }
 
-   .panel-right .icon:hover {
-      color: @color0;
+   .close-btn:hover {
+      color: @emphasis;
    }
 
    // Panel Header
@@ -115,14 +115,18 @@
    .section-label {
       height: @header-height;
       padding: 0 10px 0 20px;
-      line-height: @header-height;
-      font-size: 14px;
+
       font-family: @font-headline;
       font-weight: 700;
       text-align: left;
+      text-transform: uppercase;
+
       color: @bkgrnd-color;
       background-color: @color3;
-      text-transform: uppercase;
+
+      &:extend(.text1);
+      // font-size: 14px;
+      line-height: @header-height;
    }
 
    .section-label {
@@ -199,41 +203,34 @@
       border-style: solid;
    }
 
-   hr {
-      width: 100%;
-      height: 1px;
-      margin: @column-space 0;
-      color: @color3;
-      background-color: @color3;
+   // Panel Stripes
 
-      border: none;
-      border-bottom: 1px solid @color3;
+   .stripe,
+   .stripe-bkgrnd {
+      width: 10px;
+      height: 100%;
+      margin: 0 5px;
+      transform: skew(-45deg);
+   }
+
+   .stripe1 {
+      background-color: rgba(@color3, 0.75);
+   }
+
+   .stripe2 {
+      background-color: rgba(@color3, 0.5);
+   }
+
+   .stripe3 {
+      background-color: rgba(@color3, 0.25);
+   }
+
+   .stripe-bkgrnd {
+      background-color: @bkgrnd-color;
    }
 }
 
-.stripe,
-.stripe-bkgrnd {
-   width: 10px;
-   height: 100%;
-   margin: 0 5px;
-   transform: skew(-45deg);
-}
-
-.stripe1 {
-   background-color: rgba(@color3, 0.75);
-}
-
-.stripe2 {
-   background-color: rgba(@color3, 0.5);
-}
-
-.stripe3 {
-   background-color: rgba(@color3, 0.25);
-}
-
-.stripe-bkgrnd {
-   background-color: @bkgrnd-color;
-}
+// Modal Window
 
 .modal {
    &:extend(.fullscreen);
@@ -245,5 +242,78 @@
 
    .panel {
       box-shadow: 0 10px 30px 0 rgba(@bkgrnd-color, 1), 0 10px 60px 0 rgba(@color3, 0.6);
+   }
+}
+
+// 2-column Wrap Grid
+
+.flex-grid {
+   &:extend(.flex-rows);
+   flex-wrap: wrap;
+   gap: 20px;
+
+   max-width: @panel-max-width;
+   margin: 0 auto;
+
+   // background-color: rgba(255, 0, 0, 0.2);
+
+   .grid-box {
+      min-width: 300px;
+      flex: 1 1;
+      align-self: auto;
+
+      // background-color: rgba(255, 0, 0, 0.2);
+   }
+}
+
+// Details Chart
+
+.details {
+   display: block;
+   margin: auto;
+   max-width: @column-width * 1.25;
+
+   align-self: center;
+
+   .details-border {
+      border: 3px solid rgba(@color4, 0.5);
+   }
+
+   .details-row {
+      &:extend(.flex-center);
+
+      justify-content: space-between;
+
+      padding: 5px 10px;
+   }
+
+   .details-row:nth-child(even) {
+      background-color: rgba(@color4, 0.5);
+   }
+
+   .details-headline {
+      margin-bottom: 10px;
+
+      &:extend(.text4);
+
+      font-family: @font-headline;
+      color: @color2;
+
+      // background-color: rgba(255, 255, 0, 0.2);
+   }
+
+   .details-label {
+      &:extend(.text1);
+      // font-size: 14px;
+
+      color: rgba(@color3, 0.75);
+   }
+
+   .details-info {
+      color: @color3;
+      font-family: @font-headline;
+
+      &:extend(.text1);
+      // font-size: 14px;
    }
 }

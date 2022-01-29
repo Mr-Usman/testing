@@ -1,4 +1,4 @@
-// site-sidenav.css
+// site-sidenav.less
 
 @import "site-variables.less";
 @import "site-base.less";
@@ -15,22 +15,14 @@
 
    .header {
       width: 100%;
-      height: 31px;
+      height: @sm;
       padding: 0 @column-space 0;
       margin: 0 0 5px;
 
       color: @color3;
-      // color: @bkgrnd-color;
       background-color: rgba(@color4, 0.5);
 
-      // border: 1px solid @color3;
-
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: stretch;
-      align-items: center;
    }
 
    .header i {
@@ -39,13 +31,15 @@
 
    .label {
       margin-right: 20px;
-      font-size: 14px;
+
+      &:extend(.text1);
+      // font-size: 14px;
+      line-height: @sm;
+
       font-family: @font-headline;
       font-weight: 400;
       text-align: left;
-      line-height: 30px;
       white-space: nowrap;
-
       text-transform: uppercase;
    }
 
@@ -74,19 +68,22 @@
       padding: 10px;
       margin: 0 0 5px;
 
-      font-size: 16px;
-      font-family: @font-headline;
-      font-weight: 400;
-      text-align: left;
-      color: @color3;
-
       border-left: 10px solid @color3;
       border-right: 4px double @color3;
 
+      &:extend(.text2);
+      // font-size: 16px;
+
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: left;
+
+      color: @color3;
       background-color: rgba(@color4, 0.5);
    }
 
    a:hover {
+      color: @emphasis;
       background-color: rgba(@color4, 1);
    }
 

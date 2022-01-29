@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for Signin
+ * Asynchronously loads the component for Login
  *
  */
 

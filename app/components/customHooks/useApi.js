@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import { submitLogout } from '../containers/signin/actions';
+// import { submitLogout } from '../containers/login/actions';
 // import { useStore } from '../store';
 
 export const useApi = (

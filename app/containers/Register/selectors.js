@@ -5,21 +5,21 @@ import { initialState } from './reducer';
  * Direct selector to the signUp state domain
  */
 
-const selectSignUpDomain = state => state.signUp || initialState;
+const selectRegisterDomain = state => state.signUp || initialState;
 
 /**
  * Other specific selectors
  */
 
 /**
- * Default selector used by SignUp
+ * Default selector used by Register
  */
 
-const makeSelectSignUp = () =>
+const makeSelectRegister = () =>
   createSelector(
-    selectSignUpDomain,
+    selectRegisterDomain,
     substate => substate,
   );
 
-export default makeSelectSignUp;
-export { selectSignUpDomain };
+export default makeSelectRegister;
+export { selectRegisterDomain };

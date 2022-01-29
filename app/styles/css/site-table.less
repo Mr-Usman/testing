@@ -1,4 +1,4 @@
-// page-table.css
+// site-table.less
 
 @import "site-variables.less";
 @import "site-base.less";
@@ -12,37 +12,42 @@
    border-color: @color3;
    border-width: 1px;
 
+   @head-height: 30px;
+
    .head,
    .foot {
-      &:extend(.flex-center);
       position: relative;
 
       width: 100%;
-      height: 30px;
-      padding: 0 5px;
+      height: @head-height;
+      padding: 0 20px;
       margin: 0 auto;
 
-      font-size: 14px;
+      &:extend(.text1);
+      // font-size: 14px;
 
       color: @bkgrnd-color;
       background-color: @color3;
    }
 
    .foot {
-      margin-top: -1px;
+      &:extend(.flex-center);
+      // margin-top: -1px;
    }
 
-   .fas {
-      margin: 0 5px 0;
-   }
+   // .fas {
+   //    margin: 0 5px 0;
+   // }
 
    .label {
       margin: 0 20px;
-      font-size: 14px;
+
+      &:extend(.text1);
+      line-height: @head-height;
+
       font-family: @font-headline;
       font-weight: 400;
       text-align: left;
-      line-height: 30px;
       white-space: nowrap;
       text-transform: uppercase;
    }
@@ -57,6 +62,7 @@
 
    .center {
       margin: 0 auto;
+      line-height: @head-height;
 
       // background-color: rgba(255, 0, 0, 0.2);
    }
@@ -64,9 +70,8 @@
    .right {
       position: absolute;
       left: auto;
+      top: 2px;
       right: 0;
-
-      // &:extend(.flex-center);
 
       // background-color: rgba(255, 0, 0, 0.2);
    }
@@ -88,13 +93,16 @@
    }
 
    th {
-      color: @color3;
-      font-size: 14px;
+      &:extend(.text1);
+      // font-size: 14px;
+
       font-family: @font-headline;
       font-weight: 700;
       text-transform: uppercase;
-      background-color: rgba(@color3, 0.2);
       white-space: nowrap;
+
+      color: @color3;
+      background-color: rgba(@color3, 0.2);
    }
 
    td {
@@ -104,7 +112,10 @@
 
    tfoot td {
       padding: 10px 5px;
-      font-size: 18px;
+
+      &:extend(.text3);
+      // font-size: 18px;
+
       background-color: rgba(@color3, 0.2);
    }
 
@@ -121,6 +132,7 @@
       .fa-sort-down {
          position: absolute;
          left: 0;
+         color: @color1;
       }
 
       .fa-sort-down {
@@ -134,14 +146,17 @@
       margin: 2px;
       padding: 0 10px;
 
-      color: @color2;
-      font-size: 14px;
-      font-family: @font-headline;
-      font-weight: 700;
-      text-decoration: none;
       border: 1px solid @bkgrnd-color;
       border-radius: 5px;
 
+      &:extend(.text1);
+      // font-size: 14px;
+
+      font-family: @font-headline;
+      font-weight: 700;
+      text-decoration: none;
+
+      color: @color2;
       background-color: @bkgrnd-color;
    }
 

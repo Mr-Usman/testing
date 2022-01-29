@@ -1,0 +1,21 @@
+// module-vault.less
+
+@import "site-variables.less";
+@import "site-base.less";
+
+// &:extend(.class);
+
+.vault-box {
+   display: inline-block;
+   max-width: @column-width;
+   margin: auto;
+
+   border: 1px solid @color2;
+   background-color: @color4;
+
+   .text-currency {
+      margin: 20px;
+
+      &:extend(.text5);
+   }
+}

@@ -1,6 +1,6 @@
 /*
  *
- * Signin actions
+ * Register actions
  *
  */
 

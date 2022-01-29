@@ -1,6 +1,6 @@
-// import { selectSigninDomain } from '../selectors';
+// import { selectLoginDomain } from '../selectors';
 
-describe('selectSigninDomain', () => {
+describe('selectLoginDomain', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

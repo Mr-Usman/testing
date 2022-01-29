@@ -31,8 +31,8 @@ export const links = [
       breakLine: false
     },
     {
-      ref: '/signin',
-      text: 'Sign In *',
+      ref: '/login',
+      text: 'Log In *',
       icon: 'fas fa-sign-in-alt',
       breakLine: false
     },

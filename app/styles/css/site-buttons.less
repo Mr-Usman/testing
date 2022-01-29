@@ -5,12 +5,18 @@
 
 // &:extend(.class);
 
+// Buttons
+
 .btn {
+   display: inline-block;
    position: relative;
+
    outline: none;
+
    text-align: center;
    font-weight: 700;
    white-space: nowrap;
+
    pointer-events: all;
    cursor: pointer;
 
@@ -28,7 +34,6 @@
 .btn-danger {
    &:extend(.md);
 
-   font-size: 16px;
    font-family: @font-headline;
    text-align: center;
 
@@ -56,8 +61,10 @@
 }
 
 .btn-primary:hover {
-   color: @color1;
-   background-color: @bkgrnd-color;
+   border-color: @emphasis;
+   background-color: @emphasis;
+   // color: @color1;
+   // background-color: @bkgrnd-color;
 }
 
 // btn-primary-outline
@@ -82,8 +89,10 @@
 }
 
 .btn-secondary:hover {
-   color: @color2;
-   background-color: @bkgrnd-color;
+   border-color: @emphasis;
+   background-color: @emphasis;
+   // color: @color2;
+   // background-color: @bkgrnd-color;
 }
 
 // btn-secondary-outline
@@ -96,7 +105,9 @@
 
 .btn-secondary-outline:hover {
    color: @bkgrnd-color;
-   background-color: @color2;
+   border-color: @emphasis;
+   background-color: @emphasis;
+   // background-color: @color2;
 }
 
 // btn-color3-outline
@@ -125,10 +136,9 @@
 // btn-sm
 
 .btn-sm {
-   // &:extend(.sm);
-
    min-width: 30px;
    height: 30px;
+
    font-size: 12px;
    line-height: 28px;
 
@@ -138,15 +148,12 @@
 // btn-mini
 
 .btn-mini {
-   // &:extend(.flex-center);
-
    height: 16px;
+
    font-size: 11px;
    line-height: 15px;
 
    padding: 0 5px;
-
-   // text-transform: uppercase;
 }
 
 // btn-link - text link button
@@ -159,7 +166,8 @@
 }
 
 .btn-link:hover {
-   text-decoration: underline;
+   color: @emphasis;
+   // text-decoration: underline;
 }
 
 .btn-link > .fas {
@@ -177,10 +185,59 @@
    color: @color3;
 }
 
+// btn-round
+
+.btn-round {
+   &:extend(.md);
+
+   border: 2px solid @color2;
+   border-radius: 50%;
+
+   color: @bkgrnd-color;
+   background-color: @color2;
+}
+
+.btn-round:hover {
+   color: @color2;
+   background-color: @bkgrnd-color;
+}
+
+// btn-icon
+
+.btn-icon {
+   &:extend(.md);
+
+   color: rgba(@color3, 0.5);
+   // background-color: rgba(255, 0, 0, 0.25);
+}
+
+.btn-icon.checked {
+   color: @color1;
+}
+
+.btn-icon:hover {
+   color: @emphasis;
+}
+
+// btn-text
+
+.btn-text {
+   text-decoration: none;
+   white-space: nowrap;
+   color: @color2;
+   font-family: @font-body;
+   font-weight: 400;
+}
+
+.btn-text:hover {
+   color: @emphasis;
+   // text-decoration: underline;
+}
+
 // pagination
 
 .pagination {
-   margin-bottom: 20px;
+   margin-top: 20px;
 
    display: flex;
    flex-direction: row;
@@ -225,64 +282,51 @@
 
 // select menu
 
-.select {
+.table .select {
    position: relative;
-   // flex: 1 1 auto;
-
-   display: inline-flex;
-   align-items: center;
-
-   label {
-      margin-right: 5px;
-
-      // color: inherit;
-      // font-size: inherit;
-      // font-family: inherit;
-      // font-weight: inherit;
-   }
+   display: inline-block;
 
    select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      outline: none;
-
       height: 26px;
-      min-width: 50px;
-      margin: 2px;
-      padding: 0 15px 0 5px;
+      min-width: 60px;
+
+      margin-right: 1px;
+      padding: 0 15px 0 10px;
 
       color: @color2;
       font-size: 14px;
-      font-family: @font-headline;
-      font-weight: 700;
-      text-decoration: none;
-      text-align: left;
-      border: 1px solid @bkgrnd-color;
+
       border-radius: 5px;
 
       background-color: @bkgrnd-color;
+      // background-color: rgba(255, 0, 0, 0.25);
    }
 
-   .fas {
+   .select-icon {
       position: absolute;
-      right: 4px;
-      z-index: 1;
+      right: 9px;
       font-size: 14px;
+      line-height: 26px;
       color: @color2;
       pointer-events: none;
    }
 }
 
-// watch-btn star icon
+.form-group .select {
+   position: relative;
 
-.watch-btn {
-   position: absolute;
-   top: 10px;
-   right: 10px;
-   // line-height: 30px;
-   color: rgba(@color3, 0.5);
-}
+   select {
+      width: 100%;
+      height: 100%;
 
-.watch-btn.checked {
-   color: @color1;
+      // background-color: rgba(255, 0, 0, 0.25);
+   }
+
+   .select-icon {
+      position: absolute;
+      right: 10px;
+      line-height: inherit;
+      color: @color2;
+      pointer-events: none;
+   }
 }

@@ -55,7 +55,7 @@ export function Reset({ history }) {
     const { hasError, errorMessage } = responseData || {};
     if (!hasError) {
       setLoading(false);
-      // history.push('/signin');
+      // history.push('/login');
     } else {
       setLoading(false);
     }
@@ -88,7 +88,9 @@ export function Reset({ history }) {
               <div className="panel-content">
                 {/* FORM START */}
                 <div className="form">
-                  <div className="form-text balance-text">Request a password reset email.</div>
+                <div class="form-group">
+                              <p class="form-text balance-text">Request a password reset email.</p>
+                           </div>
 
 
 
@@ -126,7 +128,7 @@ export function Reset({ history }) {
                         <div className="btn-group">
                           <div className="btn-space" />
                           <div className="btn-hold">
-                            {loading ? <button class="btn btn-primary signin-btn" type="button" disabled>
+                            {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
                               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                               Loading...
                             </button> : <button type="submit" className="btn btn-primary">
@@ -158,8 +160,8 @@ export function Reset({ history }) {
             </div>
             <div className="btn-link-group balance-text">
               Remembered your password?
-              <Link className="btn btn-link" to="/signin">
-               <i className="fas fa-sign-in-alt" />Sign In
+              <Link className="btn btn-link" to="/login">
+               <i className="fas fa-sign-in-alt" />Log In
               </Link>
             </div>
             {/* MAIN AREA END */}

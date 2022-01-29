@@ -29,14 +29,23 @@ a:visited,
 a:hover,
 a:focus,
 a:active {
-   text-decoration: none;
+   // display: block;
    // color: inherit;
+   text-decoration: none;
 }
 
 select {
    -webkit-appearance: none;
    -moz-appearance: none;
+   text-decoration: none;
    appearance: none;
+   outline: none;
+   border: none;
+
+   font-family: @font-headline;
+   font-weight: 700;
+
+   background-color: transparent;
 }
 
 img {
@@ -44,11 +53,6 @@ img {
    max-width: 100%;
    max-height: 100%;
 }
-
-// p {
-//    margin: 0;
-//    padding: 10px 0 0;
-// }
 
 textarea,
 button,
@@ -90,51 +94,15 @@ hr {
    border-bottom: 1px solid @color3;
 }
 
-// h1 {
-//    font-size: 30px;
-//    font-weight: 400;
-//    margin: 10px auto;
-// }
+// iOS Fix
 
-// Autofill Hacks
-
-.form-input,
-.form-input:-webkit-autofill,
-.form-input:-webkit-autofill:hover,
-.form-input:-webkit-autofill:focus,
-.form-input:-webkit-autofill::first-line {
-   font-size: 20px !important;
-   color: @color0 !important;
-   font-family: @font-headline !important;
-   background: @bkgrnd-color !important;
-
-   outline: none !important;
-   -moz-appearance: none;
-   -webkit-appearance: none;
-
-   -webkit-text-fill-color: @color0 !important;
-   -webkit-box-shadow: 0 0 0 30px @bkgrnd-color inset !important;
-
-   -webkit-animation: autofill 0s both;
-   animation: autofill 0s both;
+input::-webkit-date-and-time-value {
+   text-align: left;
 }
 
-@keyframes autofill {
-   100% {
-      font-size: 20px !important;
-      color: @color0 !important;
-      font-family: @font-headline !important;
-      background: @bkgrnd-color !important;
-   }
-}
-
-@-webkit-keyframes autofill {
-   100% {
-      font-size: 20px !important;
-      color: @color0 !important;
-      font-family: @font-headline !important;
-      background: @bkgrnd-color !important;
-   }
+input[type="date"] {
+   display: block;
+   text-align: left;
 }
 
 // Slider Input

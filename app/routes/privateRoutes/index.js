@@ -6,7 +6,7 @@ const PrivateRoute = props =>
   localStorage.getItem('accessToken') ? (
     <Route {...props} />
   ) : (
-    <Redirect to="/signin" />
+    <Redirect to="/login" />
   );
 
 export default PrivateRoute;

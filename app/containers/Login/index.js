@@ -1,6 +1,6 @@
 /**
  *
- * Signin
+ * Login
  *
  */
 
@@ -13,8 +13,8 @@ import { Link } from 'react-router-dom';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { Formik, Form, Field } from 'formik';
-import makeSelectSignin from './selectors';
-import { signinSchema } from '../../validations/index';
+import makeSelectLogin from './selectors';
+import { loginSchema } from '../../validations/index';
 import reducer from './reducer';
 import saga from './saga';
 import Header from '../../components/Header';
@@ -22,12 +22,12 @@ import Footer from '../../components/Footer';
 import CustomFeild from '../../components/Form/CustomField';
 import { useApi } from '../../components/customHooks/useApi';
 
-export function Signin({ history }) {
-  const url = '/users/signin';
-  const [, signinUser] = useApi(url, {}, { method: 'POST' }, false);
+export function Login({ history }) {
+  const url = '/users/login';
+  const [, loginUser] = useApi(url, {}, { method: 'POST' }, false);
   const [loading, setLoading] = useState(false);
-  useInjectReducer({ key: 'signin', reducer });
-  useInjectSaga({ key: 'signin', saga });
+  useInjectReducer({ key: 'login', reducer });
+  useInjectSaga({ key: 'login', saga });
   const intialState = {
     email: '',
     password: '',
@@ -52,7 +52,7 @@ export function Signin({ history }) {
   const handleSubmit = async values => {
     console.log('values', values);
     setLoading(true);
-    const { responseData, isLoading } = await signinUser(values);
+    const { responseData, isLoading } = await loginUser(values);
     setLoading(isLoading);
     const { hasError, errorMessage, sucess = '', msg = '' } = responseData || {};
     if (!hasError && sucess) {
@@ -77,7 +77,7 @@ export function Signin({ history }) {
                 <div className="panel-header">
                   <div className="panel-left">
                     <div className="panel-label">
-                      Sign In
+                      Log In
                     </div>
                     <div className="panel-triangle-tl" />
                     <div className="stripe stripe1" />
@@ -93,14 +93,15 @@ export function Signin({ history }) {
                 <div className="panel-content">
                   {/* FORM START */}
                   <div className="form">
-                    <div className="form-text balance-text">
-                      Submit your credentials for authentication to access to
-                      the system.
-                    </div>
+                     <div class="form-group">
+                              <p class="form-text balance-text">
+                                 Submit your credentials for authentication to access to the system.
+                              </p>
+                           </div>
 
                     <Formik
                       initialValues={intialState}
-                      validationSchema={signinSchema}
+                      validationSchema={loginSchema}
                       onSubmit={values => {
                         handleSubmit(values);
                       }}
@@ -142,7 +143,7 @@ export function Signin({ history }) {
                             );
                           })}
                           <div className="form-text">
-                            Unable to sign in?
+                            Unable to log in?
                             <Link className="btn btn-link" to="/reset-password">
                               <i className="fas fa-undo-alt" />
                               Reset Password
@@ -151,11 +152,11 @@ export function Signin({ history }) {
                           <div className="btn-group">
                             <div className="btn-space" />
                             <div className="btn-hold">
-                            {loading ? <button class="btn btn-primary signin-btn" type="button" disabled>
+                            {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...
                               </button> : <button type="submit" className="btn btn-primary">
-                                Sign In
+                                Log In
                               </button>}
                             
                             </div>
@@ -197,12 +198,12 @@ export function Signin({ history }) {
   );
 }
 
-Signin.propTypes = {
+Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  signin: makeSelectSignin(),
+  login: makeSelectLogin(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -219,4 +220,4 @@ const withConnect = connect(
 export default compose(
   withConnect,
   memo,
-)(Signin);
+)(Login);

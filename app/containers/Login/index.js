@@ -84,13 +84,12 @@ export function Login({ history }) {
                 <div className="panel-header">
                   <div className="panel-left">
                     <div className="panel-label">
-                      <i className="fas fa-sign-in-alt" />
-                      Sign In
+                      Log In
                     </div>
                     <div className="panel-triangle-tl" />
-                    <div className="stripe" />
-                    <div className="stripe" />
-                    <div className="stripe" />
+                    <div className="stripe stripe1" />
+                    <div className="stripe stripe2" />
+                    <div className="stripe stripe3" />
                   </div>
                   <div className="panel-mid" />
                   <div className="panel-right">
@@ -101,10 +100,11 @@ export function Login({ history }) {
                 <div className="panel-content">
                   {/* FORM START */}
                   <div className="form">
-                    <div className="form-text balance-text">
-                      Submit your credentials for authentication to access to
-                      the system.
-                    </div>
+                     <div class="form-group">
+                              <p class="form-text balance-text">
+                                 Submit your credentials for authentication to access to the system.
+                              </p>
+                           </div>
 
                     <Formik
                       initialValues={intialState}
@@ -150,7 +150,7 @@ export function Login({ history }) {
                             );
                           })}
                           <div className="form-text">
-                            Unable to sign in?
+                            Unable to log in?
                             <Link className="btn btn-link" to="/reset-password">
                               <i className="fas fa-undo-alt" />
                               Reset Password
@@ -162,9 +162,8 @@ export function Login({ history }) {
                             {loading ? <button class="btn btn-primary login-btn" type="button" disabled>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...
-                              </button> :   <button type="submit" className="btn btn-primary">
-                                <i className="fas fa-sign-in-alt" />
-                                Sign In
+                              </button> : <button type="submit" className="btn btn-primary">
+                                Log In
                               </button>}
                             
                             </div>

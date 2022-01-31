@@ -78,11 +78,11 @@ export function Reset({ history }) {
             <div className="panel">
               <div className="panel-header">
                 <div className="panel-left">
-                  <div className="panel-label"><i className="fas fa-undo-alt" />Reset Password</div>
+                  <div className="panel-label">Reset Password</div>
                   <div className="panel-triangle-tl" />
-                  <div className="stripe" />
-                  <div className="stripe" />
-                  <div className="stripe" />
+                  <div className="stripe stripe1" />
+                    <div className="stripe stripe2" />
+                    <div className="stripe stripe3" />
                 </div>
                 <div className="panel-mid" />
                 <div className="panel-right">
@@ -92,7 +92,9 @@ export function Reset({ history }) {
               <div className="panel-content">
                 {/* FORM START */}
                 <div className="form">
-                  <div className="form-text balance-text">Request a password reset email.</div>
+                <div class="form-group">
+                              <p class="form-text balance-text">Request a password reset email.</p>
+                           </div>
 
 
 
@@ -134,7 +136,7 @@ export function Reset({ history }) {
                               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                               Loading...
                             </button> : <button type="submit" className="btn btn-primary">
-                              <i className="fas fa-envelope" />Send Email
+                              Send Email
                             </button>}
 
                           </div>
@@ -146,45 +148,45 @@ export function Reset({ history }) {
 
 
                 </div>
-                {/* FORM END */}
+              {/* FORM END */}
               </div>
-            </div></main></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-      <div className="panel-footer">
-        <div className="panel-left">
-          <div className="panel-corner panel-corner-bl" />
+              <div className="panel-footer">
+                <div className="panel-left">
+                  <div className="panel-corner panel-corner-bl" />
+                </div>
+                <div className="panel-mid">
+                  <div className="panel-corner panel-footer-mid" />
+                </div>
+                <div className="panel-right">
+                  <div className="panel-corner panel-corner-br" />
+                </div>
+              </div>
+            </div>
+            <div className="btn-link-group balance-text">
+              Remembered your password?
+              <Link className="btn btn-link" to="/login">
+               <i className="fas fa-sign-in-alt" />Log In
+              </Link>
+            </div>
+            {/* MAIN AREA END */}
+          </main>
         </div>
-        <div className="panel-mid">
-          <div className="panel-corner panel-footer-mid" />
-        </div>
-        <div className="panel-right">
-          <div className="panel-corner panel-corner-br" />
-        </div>
-      </div>
-      <div className="btn-link-group balance-text">
-        Remembered your password?
-        <Link className="btn btn-link" to="/signin"><i className="fas fa-sign-in-alt" />Sign In</Link>
-      </div>
-
-      {/* MAIN AREA END */}
-
-
+      </section>
       <Footer />
     </div>
-
   );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 Reset.propTypes = {
   dispatch: PropTypes.func.isRequired,

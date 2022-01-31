@@ -2,34 +2,99 @@
 
 @import "site-variables.less";
 
-// Sizes
+// Text Colors
 
-.lg {
-   min-width: 50px;
-   height: 50px;
-   font-size: 16px;
-   line-height: 48px;
+.text-color1,
+.text-primary {
+   color: @color1;
 }
 
-.md {
-   min-width: 40px;
-   height: 40px;
-   font-size: 14px;
-   line-height: 38px;
+.text-color2,
+.text-secondary {
+   color: @color2;
 }
 
-.sm {
-   min-width: 30px;
-   height: 30px;
-   font-size: 12px;
-   line-height: 28px;
+.text-color3 {
+   color: @color3;
 }
+
+.text-bkgrnd {
+   color: @bkgrnd-color;
+}
+
+.text-emphasis {
+   color: @emphasis;
+}
+
+.text-danger {
+   color: @danger;
+}
+
+.text-success {
+   color: @success;
+}
+
+.text-warning {
+   color: @warning;
+}
+
+.text-info {
+   color: @info;
+}
+
+.text-muted {
+   opacity: 0.7;
+}
+
+// Text Fonts
+
+.text-headline {
+   font-family: @font-headline;
+}
+
+.text-body {
+   font-family: @font-body;
+}
+
+// Currency Text
+
+.text-credit {
+   color: @success;
+   font-family: @font-headline;
+   white-space: nowrap !important;
+}
+
+.text-debit {
+   color: @danger;
+   font-family: @font-headline;
+   white-space: nowrap !important;
+}
+
+.text-currency {
+   color: @color0;
+   font-family: @font-headline;
+   white-space: nowrap !important;
+}
+
+// Text Positioning
+
+.text-center {
+   text-align: center;
+}
+
+.text-right {
+   text-align: right;
+}
+
+.balance-text {
+   text-wrap: balance;
+}
+
+// .nowrap {
+//    white-space: nowrap;
+// }
 
 // Helpers
-
-// .abs {
-//    position: absolute;
-// }
 
 .disabled {
    opacity: 0.4;
@@ -73,84 +138,9 @@
    justify-content: center;
 }
 
-// Text
-
-.text-color1,
-.text-primary {
-   color: @color1;
-}
-
-.text-color2,
-.text-secondary {
-   color: @color2;
-}
-
-.text-color3 {
-   color: @color3;
-}
-
-.text-danger {
-   color: @danger;
-}
-
-.text-success {
-   color: @success;
-}
-
-.text-warning {
-   color: @warning;
-}
-
-.text-info {
-   color: @info;
-}
-
-.text-headline {
-   font-family: @font-headline;
-}
-
-.text-credit {
-   color: @success;
-   font-family: @font-headline;
-}
-
-.text-debit {
-   color: @danger;
-   font-family: @font-headline;
-}
-
-.text-currency {
-   color: @color0;
-   font-family: @font-headline;
-}
-
-.text-center {
-   text-align: center;
-}
-
-.text-muted {
-   opacity: 0.7;
-}
-
-.balance-text {
-   text-wrap: balance;
-}
-
-// .fs-14 {
-//    font-size: 14px;
-// }
-
-// .fs-20 {
-//    font-size: 20px;
-// }
-
-// .fs-26 {
-//    font-size: 26px;
-// }
-
-.text-sm {
-   font-size: 12px;
-   line-height: 14px;
+.rotate90 {
+   transform-origin: 50% 50%;
+   transform: rotate(90deg);
 }
 
 // Background Color Fills
@@ -171,14 +161,83 @@
 //    background-color: @bkgrnd-color;
 // }
 
-.demo-btn {
-   outline: 1px solid red;
+// .demo-btn {
+//    outline: 1px dotted red;
+// }
+
+// .float-left {
+//    float: left;
+// }
+
+// .float-right {
+//    float: right;
+// }
+
+// .abs {
+//    position: absolute;
+// }
+
+// item image box
+
+// .img-box {
+//    position: relative;
+
+//    // border: 3px solid @color4;
+
+//    .item-img-aspect {
+//       position: relative;
+//       width: 100%;
+//       left: 0;
+//       top: 0;
+
+//       padding-top: 50%; /* image aspect ratio */
+
+//       // background-color: rgba(0, 255, 0, 0.2);
+//    }
+
+//    .img-fit {
+//       position: absolute;
+//       width: 100%;
+//       height: auto;
+//       left: 0;
+//       top: 0;
+//       margin: auto;
+
+//       // background-color: rgba(255, 0, 0, 0.2);
+//    }
+// }
+
+// img box - prevents layout issues while responsive imgs are loading
+
+.img-box {
+   position: relative;
 }
 
-.float-left {
-   float: left;
+.img-fit {
+   position: absolute;
+   width: 100%;
+   height: auto;
+   left: 0;
+   top: 0;
+   margin: auto;
+
+   // background-color: rgba(255, 0, 0, 0.2);
 }
 
-.float-right {
-   float: right;
+.img-frame {
+   border: 3px solid @color4;
+}
+
+.item-img-aspect {
+   &:extend(.img-fit);
+   position: relative;
+
+   padding-top: 50%; /* img aspect ratio */
+}
+
+.profile-img-aspect {
+   &:extend(.img-fit);
+   position: relative;
+
+   padding-top: 100%; /* img aspect ratio */
 }

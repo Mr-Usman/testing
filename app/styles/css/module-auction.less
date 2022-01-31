@@ -1,0 +1,49 @@
+// module-auction.less
+
+@import "site-variables.less";
+@import "site-base.less";
+
+// &:extend(.class);
+
+.flex-grid {
+   .btn-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+   }
+
+   .current {
+      align-self: center;
+
+      .current-label {
+         display: block;
+         width: 100%;
+         margin-bottom: 3px;
+
+         &:extend(.text2);
+         // font-size: 16px;
+
+         color: rgba(@color3, 0.75);
+      }
+
+      .current-info {
+         &:extend(.text3);
+         // font-size: 18px;
+
+         font-family: @font-headline;
+      }
+
+      .current-info:not(.text-primary) {
+         color: @color2;
+      }
+
+      .current-info:not(:last-child) {
+         margin-bottom: 12px;
+      }
+   }
+
+   .bid-form {
+      align-self: center;
+      border: 1px solid @color3;
+   }
+}

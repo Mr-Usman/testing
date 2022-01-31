@@ -1,5 +1,7 @@
 // site-variables.less
 
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Kanit:wght@400;700&display=swap");
+
 @color0: #ffffff;
 @color1: #32ffc8;
 @color2: #32c8ff;
@@ -11,16 +13,75 @@
 
 @emphasis: #ff9900;
 
-@success: #00c851;
-@danger: #ff4444;
+@success: #5eba98;
+@danger: #dc6e6a;
 @warning: #ffbb33;
 @info: #1964e1;
 
 @font-headline: "Orbitron", monospace;
-@font-body: "Roboto", sans-serif;
+@font-body: "Kanit", sans-serif;
 
-@column-width: 330px;
+@lg: 50px;
+@md: 40px;
+@sm: 30px;
+
+@column-width: 350px;
 @column-space: 20px;
 
 @panel-max-width: @column-width * 2 + @column-space;
 @site-width: @column-width * 3 + @column-space * 2;
+
+// Btn Sizes
+
+.lg {
+   min-width: @lg;
+   height: @lg;
+   font-size: 20px;
+   line-height: 48px;
+}
+
+.md {
+   min-width: @md;
+   height: @md;
+   font-size: 18px;
+   line-height: 38px;
+}
+
+.sm {
+   min-width: @sm;
+   height: @sm;
+   font-size: 12px;
+   line-height: 28px;
+}
+
+// Text Sizes
+
+.text0 {
+   font-size: 10px;
+   line-height: 12px;
+}
+
+.text1 {
+   font-size: 14px;
+   line-height: 16px;
+}
+
+.text2 {
+   font-size: 16px;
+   line-height: 18px;
+}
+
+.text3 {
+   font-size: 18px;
+   line-height: 20px;
+}
+
+.text4 {
+   font-size: 22px;
+   line-height: 26px;
+}
+
+.text5 {
+   font-size: 26px;
+   line-height: 30px;
+}

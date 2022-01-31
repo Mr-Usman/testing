@@ -85,13 +85,12 @@ export function UpdatePassword({ history }) {
               <div className="panel-header">
                 <div className="panel-left">
                   <div className="panel-label">
-                    <i className="fas fa-sign-in-alt" />
                     Update Password
                   </div>
                   <div className="panel-triangle-tl" />
-                  <div className="stripe" />
-                  <div className="stripe" />
-                  <div className="stripe" />
+                  <div className="stripe stripe1" />
+                    <div className="stripe stripe2" />
+                    <div className="stripe stripe3" />
                 </div>
                 <div className="panel-mid" />
                 <div className="panel-right">
@@ -157,7 +156,6 @@ export function UpdatePassword({ history }) {
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...
                               </button> :<button type="submit" className="btn btn-primary">
-                              <i className="fas fa-sign-in-alt" />
                               Update Password
                             </button>}
                            

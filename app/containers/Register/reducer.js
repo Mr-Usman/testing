@@ -1,6 +1,6 @@
 /*
  *
- * SignUp reducer
+ * Register reducer
  *
  */
 import produce from 'immer';

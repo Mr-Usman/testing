@@ -1,4 +1,4 @@
-// site-forms.css
+// site-forms.less
 
 @import "site-variables.less";
 @import "site-base.less";
@@ -11,20 +11,22 @@
    // background-color: rgba(255, 0, 0, 0.2);
 
    .form-text {
-      margin: @column-space;
+      margin: @column-space * 0.5 @column-space;
 
-      font-size: 16px;
+      &:extend(.text2);
+      // font-size: 16px;
+      // line-height: 20px;
+
       font-family: @font-body;
       font-weight: 400;
-      line-height: 20px;
       text-align: center;
-      color: @color3;
 
+      color: @color3;
       // background-color: rgba(255, 0, 0, 0.2);
    }
 
    // Form Group
-   // Each group contains a label, input, info text and invalid text
+   // Each group contains a label, input, info text and feedback text
 
    .form-group,
    .form-group-noselect {
@@ -37,26 +39,17 @@
       display: block;
       width: 100%;
       padding: 1px 0;
-      font-size: 14px;
+
+      &:extend(.text1);
+      // font-size: 14px;
+
       font-family: @font-headline;
       font-weight: 700;
       text-transform: uppercase;
       text-align: center;
+
       color: @bkgrnd-color;
       background-color: @color2;
-   }
-
-   .testing-group {
-      display: block;
-      width: 100%;
-      padding: 1px 0;
-      font-size: 14px;
-      font-family: "Orbitron", monospace;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
-      color: #00142d;
-      background-color: #32c8ff;
    }
 
    .group-info {
@@ -66,11 +59,14 @@
 
    .form-info,
    .group-info {
-      font-size: 12px;
+      &:extend(.text1);
+      // font-size: 12px;
+      // line-height: 14px;
+
       font-family: @font-body;
       font-weight: 400;
-      line-height: 14px;
       text-align: center;
+
       color: @color3;
    }
 
@@ -81,17 +77,20 @@
    .group-invalid {
       margin: 0;
       padding: 2px 5px 0;
-      text-transform: uppercase;
-      font-size: 12px;
+
+      &:extend(.text1);
+      // font-size: 12px;
+
       font-family: @font-body;
       font-weight: 700;
-      color: black;
       text-align: center;
+      text-transform: uppercase;
+
+      color: black;
       background-color: @danger;
    }
 
    // Input Group
-   // Input row can sometimes contain several elements on the same line
 
    .input-group {
       &:extend(.flex-rows);
@@ -99,20 +98,20 @@
 
    .form-input {
       &:extend(.md);
+      // font-size: 18px;
 
       width: 100%;
       margin: 0;
       padding: 0 10px;
 
-      font-size: 18px;
-      font-family: @font-headline;
-      font-weight: 400;
-      text-align: left;
-      color: @color0;
-
       border: 1px solid @color2;
       border-radius: 0;
 
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: left;
+
+      color: @color0;
       background-color: @bkgrnd-color;
    }
 
@@ -155,8 +154,8 @@
    // Button Group Row
 
    .btn-group {
-      &:extend(.md);
-      &:extend(.flex-rows);
+      &:extend(.md,
+      .flex-rows);
 
       margin: @column-space 0;
    }
@@ -224,7 +223,9 @@
       margin: 0;
       padding: 10px;
 
-      font-size: 16px;
+      &:extend(.text2);
+      // font-size: 16px;
+
       font-family: @font-body;
       font-weight: 400;
       text-align: left;
@@ -242,20 +243,20 @@
    .form-output,
    .form-output-body {
       &:extend(.md);
+      // font-size: 18px;
 
       width: 100%;
       margin: 0;
       padding: 0 10px;
 
-      font-size: 18px;
-      font-family: @font-headline;
-      font-weight: 400;
-      text-align: left;
-      color: @color2;
-
       border: 1px solid @color2;
       border-radius: 0;
 
+      font-family: @font-headline;
+      font-weight: 400;
+      text-align: left;
+
+      color: @color2;
       background-color: @color4;
 
       pointer-events: none;
@@ -287,14 +288,13 @@
 
    .form-icon {
       &:extend(.md);
+      // font-size: 18px;
 
       width: 100%;
       margin: 0;
       padding: 0 10px;
-
       flex: 0;
 
-      font-size: 18px;
       font-family: @font-headline;
       font-weight: 400;
       text-align: center;
@@ -304,87 +304,144 @@
       border-left: none;
    }
 
-   .form-flex {
-      // &:extend(.flex-center);
+   // Multi-column Wrap Grid
+
+   .flex-multi {
+      margin: @column-space;
+
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: flex-start;
-      align-content: stretch;
+      align-content: flex-start;
       align-items: flex-start;
+
       gap: @column-space;
 
-      margin: @column-space;
+      // background-color: rgba(255, 0, 0, 0.2);
+
+      .flex-item {
+         flex: 1 1 auto;
+         align-self: flex-start;
+
+         // background-color: rgba(255, 255, 0, 0.2);
+      }
    }
 
-   /* CHECK BOX */
+   // 2-column Wrap Grid
+   // Overwrite flex-grid margins when used inside form panel
 
-   .form-check {
+   .flex-grid {
+      margin: 20px;
+
+      .grid-box {
+         margin: auto;
+      }
+   }
+
+   /* CHECK BOX & RADIO BUTTON */
+
+   .form-select {
       &:extend(.sm);
 
-      width: 30%;
-      min-width: 220px;
-      margin: 0 @column-space;
-      text-align: left;
+      display: inline-block;
+      margin: auto;
 
       // background-color: rgba(255, 255, 0, 0.2);
    }
 
-   .form-check:focus-within .form-check-icon {
-      border: 1px solid @emphasis;
-      // background-color: rgba(255, 255, 0, 0.2);
-   }
-
-   .form-check-input {
-      // display: none;
+   .form-check-input,
+   .form-radio-input {
       opacity: 0.01;
+      position: absolute;
    }
 
-   .form-check-label {
+   .form-select-label {
       &:extend(.sm);
+      font-size: 16px !important;
+
       position: relative;
       display: inline-block;
 
-      font-size: 18px;
-      font-family: @font-headline;
+      font-family: @font-body;
       font-weight: 400;
-      text-align: center;
-      color: @color0;
+
+      color: @color2;
       user-select: none;
 
       display: flex;
       align-items: center;
+
+      pointer-events: all;
+      cursor: pointer;
+
+      transition-delay: 0s;
+      transition-duration: 150ms;
+      transition-property: all;
+      transition-timing-function: ease-in-out;
    }
 
-   .form-check-icon {
-      &:extend(.sm);
-      position: relative;
-      display: inline-block;
+   .form-select-label:hover {
+      color: @emphasis;
+      // color: @color1;
+   }
 
+   .form-select .fas,
+   .form-select .far {
       margin-right: 10px;
-      border: 1px solid @color2;
-   }
 
-   .form-check-input:checked + .form-check-icon::before {
-      &:extend(.sm);
-      position: absolute;
-      display: inline-block;
-
-      top: 0;
-      left: -1px;
-
-      font-size: 18px;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 400;
-      text-align: center;
-
-      content: "\f00c";
+      // &:extend(.text5);
+      font-size: 26px;
    }
 
    .qty {
-      font-family: @font-body;
-      font-size: 14px;
-      color: @color2;
       margin-left: 5px;
+
+      &:extend(.text1);
+
+      font-family: @font-body;
+
+      color: @color3;
+   }
+}
+
+// Autofill Hacks
+
+.form-input,
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill::first-line {
+   font-size: 18px !important;
+   color: @color0 !important;
+   font-family: @font-headline !important;
+   background: @bkgrnd-color !important;
+
+   outline: none !important;
+   -moz-appearance: none;
+   -webkit-appearance: none;
+
+   -webkit-text-fill-color: @color0 !important;
+   -webkit-box-shadow: 0 0 0 30px @bkgrnd-color inset !important;
+
+   -webkit-animation: autofill 0s both;
+   animation: autofill 0s both;
+}
+
+@keyframes autofill {
+   100% {
+      font-size: 18px !important;
+      color: @color0 !important;
+      font-family: @font-headline !important;
+      background: @bkgrnd-color !important;
+   }
+}
+
+@-webkit-keyframes autofill {
+   100% {
+      font-size: 18px !important;
+      color: @color0 !important;
+      font-family: @font-headline !important;
+      background: @bkgrnd-color !important;
    }
 }

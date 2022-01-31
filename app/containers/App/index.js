@@ -10,9 +10,10 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import Routes from '../../routes/routes';
-import GlobalStyle from '../../global-styles';
+// import GlobalStyle from '../../global-styles';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
@@ -21,9 +22,8 @@ export default function App() {
 
       <Switch>
         <Routes />
-      
       </Switch>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
     </div>
   );
 }

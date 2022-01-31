@@ -21,6 +21,7 @@ import saga from './saga';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CustomFeild from '../../components/Form/CustomField';
+import { toast } from 'react-toastify';
 
 export function UpdatePassword({ history }) {
   const url = '/users/update';
@@ -62,12 +63,14 @@ export function UpdatePassword({ history }) {
       password,
     });
     setLoading(isLoading);
-    const { hasError, errorMessage } = responseData || {};
+    const { hasError, errorMessage, msg='' } = responseData || {};
     if (!hasError) {
       setLoading(false);
-      // history.push('/login');
+      toast.success('Password has been updated successfully!');
     } else {
       setLoading(false);
+      toast.error(msg);
+
     }
   };
 

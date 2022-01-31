@@ -23,14 +23,20 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useApi } from '../../components/customHooks/useApi';
 import CustomFeild from '../../components/Form/CustomField';
+import { toast } from 'react-toastify';
+
 
 export function SignUp({ history }) {
   useInjectReducer({ key: 'signUp', reducer });
   useInjectSaga({ key: 'signUp', saga });
-  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    localStorage.clear();
+    const islogin = JSON.parse(localStorage.getItem('user'));
+    if(islogin) {
+      history.push('/user');
+    } else {
+      localStorage.removeItem('user');
+    }
   }, []);
   const [loading, setLoading] = useState(false);
   const url = '/users/register';
@@ -66,17 +72,18 @@ export function SignUp({ history }) {
   ];
 
   const handleSubmit = async values => {
-    console.log('values', values);
+  
     setLoading(true);
     const { responseData, isLoading } = await createUser(values);
     setLoading(isLoading);
     const { hasError, errorMessage, success } = responseData || {};
     if (!hasError && success) {
       setLoading(false);
+      toast.success(`Account has been created`);
       history.push('/signin')
     } else {
       setLoading(false);
-      alert(`Email already exists or ${errorMessage}`)
+      toast.error(`Email already exists or ${errorMessage}`);
     }
   };
 

@@ -15,11 +15,16 @@ import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectMyProfile from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import { useApi } from '../../components/customHooks/useApi';
 
 export function MyProfile() {
   useInjectReducer({ key: 'myProfile', reducer });
   useInjectSaga({ key: 'myProfile', saga });
-
+  const user = JSON.parse(localStorage.getItem('user'));
+  const getAllApiUrl = `/users/user/${user._id}`;
+  const [data] = useApi(getAllApiUrl, false, { method: 'GET' });
+  const { responseData } = data || {};
+  console.log('user', data);
   return (
     <section className="content">
   <div className="content-upper">
@@ -38,13 +43,13 @@ export function MyProfile() {
             <a href="#"><i className="fas fa-address-card" />Personal Info</a>
           </li>
           <li className="demo-btn">
-            <a href="#"><i className="fas fa-envelope" />Email</a>
+            <a href="#"><i className="fas fa-envelope" />Email : {responseData && responseData.user && responseData.user.email}</a>
           </li>
           <li className="demo-btn">
             <a href="#"><i className="fas fa-key" />Password</a>
           </li>
           <li className="demo-btn">
-            <a href="#"><i className="fas fa-user" />Username</a>
+            <a href="#"><i className="fas fa-user" />Username: {responseData && responseData.user && responseData.user.firstName }</a>
           </li>
         </ul>
       </nav>

@@ -17,7 +17,7 @@ export const useApi = (
   const [errorCode, setErrorCode] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   // const [, dispatch] = useStore();
-  const BASE_URL = process.env.BASE_URL || 'http://192.168.10.2:5000/api';
+  const BASE_URL = process.env.BASE_URL || 'http://localhost:5000/api';
   let fetchOptions = {};
 
   // Private function to make options for post request

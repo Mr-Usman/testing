@@ -26,6 +26,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import '../../styles/css/site-forms.less';
 import CustomFeild from '../../components/Form/CustomField';
+import { toast } from 'react-toastify';
 
 export function Reset({ history }) {
   const url = '/users/sendforgetPasswordEmail';
@@ -52,12 +53,15 @@ export function Reset({ history }) {
     setLoading(true);
     const { responseData, isLoading } = await resetUser(values);
     setLoading(isLoading);
-    const { hasError, errorMessage } = responseData || {};
+    const { hasError, errorMessage, sucess = '', msg = ''} = responseData || {};
     if (!hasError) {
       setLoading(false);
+      toast.success('Reset user query has been made successfully!');
+
       // history.push('/login');
     } else {
       setLoading(false);
+      toast.error(msg)
     }
   };
 

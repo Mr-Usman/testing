@@ -4,7 +4,7 @@
  *
  */
 
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -21,6 +21,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CustomFeild from '../../components/Form/CustomField';
 import { useApi } from '../../components/customHooks/useApi';
+import { toast } from 'react-toastify';
 
 export function Login({ history }) {
   const url = '/users/login';
@@ -28,6 +29,12 @@ export function Login({ history }) {
   const [loading, setLoading] = useState(false);
   useInjectReducer({ key: 'login', reducer });
   useInjectSaga({ key: 'login', saga });
+  useEffect(() => {
+    const islogin = JSON.parse(localStorage.getItem('user'));
+    if(islogin) {
+      history.push('/user');
+    }
+  }, []);
   const intialState = {
     email: '',
     password: '',
@@ -62,7 +69,7 @@ export function Login({ history }) {
       history.push('/user');
     } else {
       setLoading(false);
-      alert(msg)
+      toast.error(msg);
     }
   };
   return (

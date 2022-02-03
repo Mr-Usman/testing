@@ -23,8 +23,7 @@
       padding: 0 20px;
       margin: 0 auto;
 
-      &:extend(.text1);
-      // font-size: 14px;
+      &:extend(.text-size1);
 
       color: @bkgrnd-color;
       background-color: @color3;
@@ -35,14 +34,10 @@
       // margin-top: -1px;
    }
 
-   // .fas {
-   //    margin: 0 5px 0;
-   // }
-
    .label {
       margin: 0 20px;
 
-      &:extend(.text1);
+      &:extend(.text-size1);
       line-height: @head-height;
 
       font-family: @font-headline;
@@ -93,11 +88,11 @@
    }
 
    th {
-      &:extend(.text1);
-      // font-size: 14px;
+      &:extend(.text-size1);
 
       font-family: @font-headline;
       font-weight: 700;
+      text-align: center;
       text-transform: uppercase;
       white-space: nowrap;
 
@@ -106,15 +101,17 @@
    }
 
    td {
-      color: @color2;
       background-color: rgba(@color3, 0.1);
+   }
+
+   td:not(.text-currency) {
+      color: @color2;
    }
 
    tfoot td {
       padding: 10px 5px;
 
-      &:extend(.text3);
-      // font-size: 18px;
+      &:extend(.text-size3);
 
       background-color: rgba(@color3, 0.2);
    }
@@ -149,8 +146,7 @@
       border: 1px solid @bkgrnd-color;
       border-radius: 5px;
 
-      &:extend(.text1);
-      // font-size: 14px;
+      &:extend(.text-size1);
 
       font-family: @font-headline;
       font-weight: 700;
@@ -228,4 +224,36 @@
 
 .table:not(.sortbar) {
    border-width: 0 1px 1px;
+}
+
+// table select menu
+
+.table .select {
+   position: relative;
+   display: inline-block;
+
+   select {
+      height: 26px;
+      min-width: 60px;
+
+      margin-right: 1px;
+      padding: 0 15px 0 10px;
+
+      color: @color2;
+      font-size: 14px;
+
+      border-radius: 5px;
+
+      background-color: @bkgrnd-color;
+      // background-color: rgba(255, 0, 0, 0.25);
+   }
+
+   .icon {
+      position: absolute;
+      right: 9px;
+      font-size: 14px;
+      line-height: 26px;
+      color: @color2;
+      pointer-events: none;
+   }
 }

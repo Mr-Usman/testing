@@ -13,9 +13,7 @@
    .form-text {
       margin: @column-space * 0.5 @column-space;
 
-      &:extend(.text2);
-      // font-size: 16px;
-      // line-height: 20px;
+      &:extend(.text-size2);
 
       font-family: @font-body;
       font-weight: 400;
@@ -30,6 +28,7 @@
 
    .form-group,
    .form-group-noselect {
+      position: relative;
       margin: @column-space;
 
       // background-color: rgba(255, 0, 0, 0.2);
@@ -40,8 +39,7 @@
       width: 100%;
       padding: 1px 0;
 
-      &:extend(.text1);
-      // font-size: 14px;
+      &:extend(.text-size1);
 
       font-family: @font-headline;
       font-weight: 700;
@@ -52,6 +50,13 @@
       background-color: @color2;
    }
 
+   .group-label .icon {
+      width: 15px;
+      float: right;
+      margin: 2px 5px 0 -25px;
+      font-size: 13px;
+   }
+
    .group-info {
       padding: 5px;
       border-radius: 0;
@@ -59,9 +64,7 @@
 
    .form-info,
    .group-info {
-      &:extend(.text1);
-      // font-size: 12px;
-      // line-height: 14px;
+      &:extend(.text-size1);
 
       font-family: @font-body;
       font-weight: 400;
@@ -78,8 +81,7 @@
       margin: 0;
       padding: 2px 5px 0;
 
-      &:extend(.text1);
-      // font-size: 12px;
+      &:extend(.text-size1);
 
       font-family: @font-body;
       font-weight: 700;
@@ -93,12 +95,12 @@
    // Input Group
 
    .input-group {
-      &:extend(.flex-rows);
+      &:extend(.size-md,
+      .flex-rows);
    }
 
    .form-input {
-      &:extend(.md);
-      // font-size: 18px;
+      &:extend(.size-md);
 
       width: 100%;
       margin: 0;
@@ -151,39 +153,6 @@
       background-color: @emphasis;
    }
 
-   // Button Group Row
-
-   .btn-group {
-      &:extend(.md,
-      .flex-rows);
-
-      margin: @column-space 0;
-   }
-
-   .btn-space {
-      flex: 1 1 auto;
-      align-self: auto;
-      height: 100%;
-      margin: 0 5px;
-      border: 1px solid @color4;
-      background-color: @color4;
-   }
-
-   .btn-space:first-child {
-      margin: 0 5px 0 0;
-   }
-
-   .btn-space:last-child {
-      margin: 0 0 0 5px;
-   }
-
-   .btn-hold {
-      flex: 0 1 auto;
-      align-self: auto;
-      height: 100%;
-      margin: 0 5px;
-   }
-
    // Password Strength Meter
 
    .password-meter {
@@ -210,21 +179,13 @@
       background-color: @color2;
    }
 
-   .label-icon {
-      width: 15px;
-      float: right;
-      margin: 2px 5px 0 -25px;
-      font-size: 13px;
-   }
-
    .form-textarea {
       width: 100%;
       min-height: 40px;
       margin: 0;
       padding: 10px;
 
-      &:extend(.text2);
-      // font-size: 16px;
+      &:extend(.text-size2);
 
       font-family: @font-body;
       font-weight: 400;
@@ -232,7 +193,7 @@
       color: @color0;
 
       border: 1px solid @color2;
-      border-top: none;
+      // border-top: none;
       border-radius: 0;
 
       background-color: @bkgrnd-color;
@@ -242,8 +203,7 @@
 
    .form-output,
    .form-output-body {
-      &:extend(.md);
-      // font-size: 18px;
+      &:extend(.size-md);
 
       width: 100%;
       margin: 0;
@@ -264,7 +224,14 @@
    }
 
    .form-output-body {
+      height: auto;
+      min-height: @md;
+      padding: 10px;
+
+      border-bottom: none;
+
       font-size: 16px;
+      line-height: 20px;
       font-family: @font-body;
    }
 
@@ -286,22 +253,25 @@
       border-left: none;
    }
 
-   .form-icon {
-      &:extend(.md);
-      // font-size: 18px;
+   // form-switch off / on
+
+   .form-switch {
+      &:extend(.size-md);
 
       width: 100%;
       margin: 0;
       padding: 0 10px;
-      flex: 0;
-
-      font-family: @font-headline;
-      font-weight: 400;
-      text-align: center;
-      color: inherit;
 
       border: 1px solid @color2;
-      border-left: none;
+      border-radius: 0;
+
+      font-size: 20px;
+      font-family: @font-headline;
+      font-weight: 700;
+      text-align: center;
+
+      // color: @color0;
+      background-color: @bkgrnd-color;
    }
 
    // Multi-column Wrap Grid
@@ -342,7 +312,7 @@
    /* CHECK BOX & RADIO BUTTON */
 
    .form-select {
-      &:extend(.sm);
+      &:extend(.size-sm);
 
       display: inline-block;
       margin: auto;
@@ -357,21 +327,19 @@
    }
 
    .form-select-label {
-      &:extend(.sm);
-      font-size: 16px !important;
-
       position: relative;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+
+      &:extend(.size-sm);
+      font-size: 16px;
 
       font-family: @font-body;
       font-weight: 400;
 
       color: @color2;
+
       user-select: none;
-
-      display: flex;
-      align-items: center;
-
       pointer-events: all;
       cursor: pointer;
 
@@ -383,25 +351,53 @@
 
    .form-select-label:hover {
       color: @emphasis;
-      // color: @color1;
    }
 
-   .form-select .fas,
-   .form-select .far {
+   .form-select .icon {
       margin-right: 10px;
 
-      // &:extend(.text5);
       font-size: 26px;
    }
 
    .qty {
       margin-left: 5px;
 
-      &:extend(.text1);
-
-      font-family: @font-body;
-
       color: @color3;
+   }
+
+   // left icons in input field
+
+   .input-group .form-input.icon-left {
+      padding-left: 35px;
+   }
+
+   .input-group .icon.icon-left {
+      position: absolute;
+      left: 10px;
+      line-height: inherit;
+      color: @color2;
+      pointer-events: none;
+   }
+}
+
+// form-group select menu
+
+.form-group .select {
+   position: relative;
+
+   select {
+      width: 100%;
+      height: 100%;
+
+      // background-color: rgba(255, 0, 0, 0.25);
+   }
+
+   .icon {
+      position: absolute;
+      right: 10px;
+      line-height: inherit;
+      color: @color2;
+      pointer-events: none;
    }
 }
 

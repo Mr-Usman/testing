@@ -1,0 +1,79 @@
+// module-docs.less
+
+@import "site-variables.less";
+@import "site-base.less";
+
+// &:extend(.class);
+
+h1 {
+   &:extend(.text-size5);
+   margin-top: 0px;
+   margin-bottom: 20px;
+
+   font-family: @font-headline;
+   color: @color1;
+}
+
+h2 {
+   &:extend(.text-size4);
+   margin-top: 20px;
+   margin-bottom: 5px;
+
+   font-family: @font-headline;
+   color: @color2;
+}
+
+h3 {
+   &:extend(.text-size3);
+   margin-top: 20px;
+   margin-bottom: 5px;
+
+   font-family: @font-body;
+   color: @color2;
+}
+
+em,
+p {
+   &:extend(.text-size3);
+   margin: 0;
+
+   font-family: @font-body;
+   font-weight: 400;
+   color: @color3;
+}
+
+.p1 {
+   margin: 0;
+}
+
+h2,
+.p2 {
+   margin-left: @column-space * 0;
+}
+
+h3,
+.p3 {
+   margin-left: @column-space * 1;
+}
+
+.docs {
+   margin: @column-space;
+   text-align: left;
+}
+
+.docs-table {
+   max-width: @column-width;
+   margin: 10px auto 0;
+   border: none;
+}
+
+ul {
+   margin-top: 0;
+}
+
+li {
+   &:extend(.text-size2);
+   font-family: @font-body;
+   font-weight: 400;
+   color: @color3;
+}

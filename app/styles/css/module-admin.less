@@ -6,7 +6,7 @@
 // &:extend(.class);
 
 .bulk-selected {
-   &:extend(.text2);
+   &:extend(.text-size2);
    line-height: 18px;
 
    display: inline-block;
@@ -15,4 +15,21 @@
 
    color: @bkgrnd-color;
    background-color: @color2;
+}
+
+.email-verified-icon {
+   &:extend(.size-md);
+
+   width: 100%;
+   margin: 0;
+   padding: 0 10px;
+   flex: 0;
+
+   font-family: @font-headline;
+   font-weight: 400;
+   text-align: center;
+   color: inherit;
+
+   border: 1px solid @color2;
+   border-left: none;
 }

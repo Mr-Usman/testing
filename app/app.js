@@ -27,6 +27,10 @@ import './styles/css/site-header.less';
 import './styles/css/site-buttons.less';
 import './styles/css/site-panels.less';
 import './styles/css/site-forms.less';
+import './styles/css/site-sidenav.less';
+import './styles/css/module-account.less';
+import './styles/css/module-admin.less';
+import './styles/css/site-table.less';
 // Import root app
 import App from 'containers/App';
 

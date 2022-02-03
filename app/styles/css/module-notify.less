@@ -1,0 +1,45 @@
+// module-notify.less
+
+@import "site-variables.less";
+@import "site-base.less";
+
+// &:extend(.class);
+
+.notify-list {
+   margin: @column-space;
+
+   .item-box {
+      min-width: 60px;
+   }
+
+   .title {
+      font-size: 16px;
+      line-height: 20px;
+   }
+
+   .body {
+      font-size: 15px;
+      line-height: 18px;
+   }
+
+   .notify-item:not(last) {
+      margin-bottom: @column-space * 0.5;
+   }
+
+   // delete button
+
+   .delete-btn {
+      width: 40px;
+      height: 40px;
+      margin: auto;
+
+      font-size: 12px;
+
+      color: @color3;
+      // background-color: rgba(255, 0, 0, 0.2);
+   }
+
+   .delete-btn:hover {
+      color: @danger;
+   }
+}

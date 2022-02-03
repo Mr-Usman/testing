@@ -67,7 +67,6 @@
 
    .panel-left {
       flex: 0 1 auto;
-      height: 100%;
 
       // background-color: rgba(255, 0, 0, 0.2);
 
@@ -78,23 +77,18 @@
 
    .panel-mid {
       flex: 1 1 auto;
-      height: 100%;
 
       // background-color: rgba(0, 255, 255, 0.2);
    }
 
    .panel-right {
-      position: relative;
-      flex: 0 1 auto;
-      // width: @corner-size;
-      height: 100%;
+      flex: 0 1 @corner-size;
 
       color: @color3;
       text-align: left;
       vertical-align: baseline;
 
-      &:extend(.text5);
-      // font-size: 24px;
+      &:extend(.text-size5);
 
       // background-color: rgba(0, 0, 255, 0.2);
    }
@@ -124,8 +118,8 @@
       color: @bkgrnd-color;
       background-color: @color3;
 
-      &:extend(.text1);
-      // font-size: 14px;
+      &:extend(.text-size1);
+
       line-height: @header-height;
    }
 
@@ -134,13 +128,12 @@
       background-color: @color4;
 
       border-top: 1px solid @color3;
-      // border-bottom: 1px solid @color3;
    }
 
-   .panel-label > .fas,
-   .section-label > .fas {
-      margin-right: 5px;
-   }
+   // .panel-label > .icon,
+   // .section-label > .icon {
+   //    margin-right: 5px;
+   // }
 
    .panel-triangle-tl {
       width: @header-height;
@@ -186,7 +179,7 @@
 
    // Panel Footer
 
-   .panel-footer .panel-mid {
+   .panel-footer {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
@@ -199,6 +192,7 @@
       height: 10px;
       margin: auto auto 0;
 
+      border-color: @color3;
       border-width: 0 1px 4px 1px;
       border-style: solid;
    }
@@ -228,6 +222,39 @@
    .stripe-bkgrnd {
       background-color: @bkgrnd-color;
    }
+}
+
+// Button Group Row
+
+.btn-group {
+   &:extend(.size-md,
+   .flex-rows);
+
+   margin: @column-space 0;
+}
+
+.btn-space {
+   flex: 1 1 auto;
+   align-self: auto;
+   height: 100%;
+   margin: 0 5px;
+   border: 1px solid @color4;
+   background-color: @color4;
+}
+
+.btn-space:first-child {
+   margin: 0 5px 0 0;
+}
+
+.btn-space:last-child {
+   margin: 0 0 0 5px;
+}
+
+.btn-hold {
+   flex: 0 1 auto;
+   align-self: auto;
+   height: 100%;
+   margin: 0 5px;
 }
 
 // Modal Window
@@ -294,7 +321,7 @@
    .details-headline {
       margin-bottom: 10px;
 
-      &:extend(.text4);
+      &:extend(.text-size4);
 
       font-family: @font-headline;
       color: @color2;
@@ -303,17 +330,25 @@
    }
 
    .details-label {
-      &:extend(.text1);
-      // font-size: 14px;
+      &:extend(.text-size1);
 
       color: rgba(@color3, 0.75);
    }
 
    .details-info {
+      &:extend(.text-size1);
+
       color: @color3;
       font-family: @font-headline;
+   }
 
-      &:extend(.text1);
-      // font-size: 14px;
+   .details-center {
+      width: 100%;
+
+      &:extend(.text-size1);
+
+      color: @color2;
+      font-family: @font-headline;
+      text-align: center;
    }
 }

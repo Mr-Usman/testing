@@ -121,13 +121,14 @@ const InputField = ({
   onChange,
   isShowPasswordStrength,
   isPassValid,
-  isReset
+  isReset,
+  icon
 }) => {
   const [show, setShow] = useState(true);
   return(
   <>
     <div className="form-group">
-      <label className={`group-label`} htmlFor={name}>{label}<i className="fas fa-shield-alt label-icon" /></label>
+      <label className={`group-label`} htmlFor={name}>{label}<i className={icon || "fas fa-shield-alt label-icon"} /></label>
       <div className="input-group">
         <input id={name} name={name} type={show ? type : 'get'} className="form-input" autoComplete="off" onChange={onChange} />
         {isPaswordField && <button type="button" onClick={() => setShow(!show)} className="btn btn-secondary-outline btn-square">
@@ -191,6 +192,15 @@ const CheckBoxInput = ({ label, type, name }) => (
   //       {label}
   //     </label>
   //   </div>
+);
+
+const Switch = () => (
+  <div className="form-switch">
+  <button className="btn btn-switch">
+    <span className="text-color3">OFF</span> <i className="icon fa fa-toggle-on" /><span className="text-color1"> ON</span>
+  </button>
+</div>
+
 );
 CheckBoxInput.propTypes = {
   label: PropTypes.string.isRequired,
@@ -304,6 +314,17 @@ const CustomFeild = ({
         type={feild.type}
       />
     );
+  if (feild.type === 'switch')
+    return (
+      <Switch
+        label={feild.label}
+        errors={errors}
+        touched={touched}
+        name={feild.name}
+        readOnly={feild.readOnly}
+        type={feild.type}
+      />
+    );
   if (feild.type === 'typeahead')
     return (
       <TypeaheadFeild
@@ -319,6 +340,24 @@ const CustomFeild = ({
         setFieldTouched={setFieldTouched}
       />
     );
+    if (feild.type === 'date')
+    return (
+      <InputField
+      label={feild.label}
+      errors={errors}
+      touched={touched}
+      name={feild.name}
+      placeholder={feild.placeholder}
+      readOnly={feild.readOnly}
+      type={feild.type}
+      isPaswordField={feild.isPaswordField}
+      isShowPasswordStrength={feild.isShowPasswordStrength}
+      isEmailField={feild.isEmailField}
+      onChange={onChange}
+      isReset={feild.isReset}
+      icon={feild.icon}
+    />
+    );
   return (
     <InputField
       label={feild.label}
@@ -333,6 +372,7 @@ const CustomFeild = ({
       isEmailField={feild.isEmailField}
       onChange={onChange}
       isReset={feild.isReset}
+      icon={feild.icon}
     />
   );
 };

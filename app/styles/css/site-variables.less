@@ -13,8 +13,8 @@
 
 @emphasis: #ff9900;
 
-@success: #5eba98;
-@danger: #dc6e6a;
+@success: #5eca98;
+@danger: #f94d33;
 @warning: #ffbb33;
 @info: #1964e1;
 
@@ -24,6 +24,7 @@
 @lg: 50px;
 @md: 40px;
 @sm: 30px;
+@mini: 15px;
 
 @column-width: 350px;
 @column-space: 20px;
@@ -31,57 +32,32 @@
 @panel-max-width: @column-width * 2 + @column-space;
 @site-width: @column-width * 3 + @column-space * 2;
 
-// Btn Sizes
+// Sizes
 
-.lg {
+.size-lg {
    min-width: @lg;
    height: @lg;
    font-size: 20px;
-   line-height: 48px;
+   line-height: @lg - 2;
 }
 
-.md {
+.size-md {
    min-width: @md;
    height: @md;
    font-size: 18px;
-   line-height: 38px;
+   line-height: @md - 2;
 }
 
-.sm {
+.size-sm {
    min-width: @sm;
    height: @sm;
-   font-size: 12px;
-   line-height: 28px;
-}
-
-// Text Sizes
-
-.text0 {
-   font-size: 10px;
-   line-height: 12px;
-}
-
-.text1 {
    font-size: 14px;
-   line-height: 16px;
+   line-height: @sm - 2;
 }
 
-.text2 {
-   font-size: 16px;
-   line-height: 18px;
-}
-
-.text3 {
-   font-size: 18px;
-   line-height: 20px;
-}
-
-.text4 {
-   font-size: 22px;
-   line-height: 26px;
-}
-
-.text5 {
-   font-size: 26px;
-   line-height: 30px;
+.size-mini {
+   min-width: @mini;
+   height: @mini;
+   font-size: 11px;
+   line-height: @mini - 1;
 }
